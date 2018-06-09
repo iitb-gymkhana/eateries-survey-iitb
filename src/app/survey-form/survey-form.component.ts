@@ -35,10 +35,10 @@ export class SurveyFormComponent implements OnInit {
     'Overall outlet cleanliness'];
   absenceMenuItems = ['Once', 'Two or three times a week', 'Rarely'];
   otherParameters = ['Staff Behaviour', 'Serving Time', 'Overall Experience'];
-  ratings = ['1', '2', '3', '4', '5', 'No idea'];  
+  ratings = ['1', '2', '3', '4', '5', 'No idea'];
   
   surveyModel = new Survey(
-    'xyz@iitb.ac.in', 
+    '',
     this.hostels[0],
     this.frequencies[0],
     this.foodItems,
