@@ -53,7 +53,7 @@
               <tr *ngFor="let item of foodItems; let i = index">
                 <th scope="row">{{item.name}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.foodRatings[i].rating" name="item{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="item{{i}}">
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -64,6 +64,36 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-sm">
+        <div class="question-quality">
+          Rate on overall Hygiene level maintained in Canteen
+          <small class="text-muted">
+            <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+          </small>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" *ngFor="let rating of ratings">{{rating}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of hygieneOfItems; let i = index">
+                <th scope="row">{{item.hygieneOf}}</th>
+                <td *ngFor="let rating of ratings" >
+                  <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="item{{i}}">
+                    <mat-radio-button [value]="rating"></mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-sm">

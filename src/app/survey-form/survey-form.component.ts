@@ -31,7 +31,7 @@ export class SurveyFormComponent implements OnInit {
     {name: 'Nimbu pani', rating: ''},
     {name: 'Patties/rolls', rating: ''}];
 
-  hygieneLevels = [
+  hygieneOfItems = [
     {hygieneOf: 'Cleanliness of utensils', level: ''},
     {hygieneOf: 'Cleanliness of Tables', level: ''},
     {hygieneOf: 'Cleanliness of cook', level: ''},
@@ -41,7 +41,7 @@ export class SurveyFormComponent implements OnInit {
   otherParameters = ['Staff Behaviour', 'Serving Time', 'Overall Experience'];
   ratings = ['1', '2', '3', '4', '5', 'No idea'];
   
-  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneLevels, '', [], '');
+  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', [], '');
 
   submitted = false;
 
