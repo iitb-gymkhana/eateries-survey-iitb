@@ -37,18 +37,23 @@ export class SurveyFormComponent implements OnInit {
     {hygieneOf: 'Cleanliness of cook', level: ''},
     {hygieneOf: 'Overall outlet cleanliness', level: ''}];
 
-  absenceMenuItems = ['Once', 'Two or three times a week', 'Rarely'];
-  otherParameters = ['Staff Behaviour', 'Serving Time', 'Overall Experience'];
+  absenceMenuItemTimes = ['Once', 'Two or three times a week', 'Rarely'];
+
+  otherParameters = [
+    {parameter: 'Staff Behaviour', rating: ''},
+    {parameter: 'Serving Time', rating: ''},
+    {parameter: 'Overall Experience', rating: ''}];
+
   ratings = ['1', '2', '3', '4', '5', 'No idea'];
   
-  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', [], '');
+  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
 
   submitted = false;
 
   onSubmit() { this.submitted = true; }
 
   // TODO: Remove this after debugging
-  get diagnostic() { return JSON.stringify(this.surveyModel); }
+  get diagnostic() { return this.surveyModel; }
 
   constructor() { }
 

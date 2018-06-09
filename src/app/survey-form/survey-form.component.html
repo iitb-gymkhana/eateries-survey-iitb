@@ -1,10 +1,8 @@
-{{ diagnostic }}
-
 <div class="container-fluid">
   <form>
     <div class="row">
       <div class="email col-sm">
-        <mat-form-field>
+        <mat-form-field class="form-input-full-width">
           <input matInput placeholder="Email" [(ngModel)]="surveyModel.email" name="email" required>
         </mat-form-field>
       </div>
@@ -12,7 +10,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <mat-form-field>
+        <mat-form-field class="form-input-full-width">
           <mat-select placeholder="Your hostel" [(ngModel)]="surveyModel.hostel" name="hostel">
             <mat-option *ngFor="let hostel of hostels" [value]="hostel">
               Hostel {{hostel}}
@@ -53,7 +51,7 @@
               <tr *ngFor="let item of foodItems; let i = index">
                 <th scope="row">{{item.name}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="item{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="fooditem{{i}}">
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -66,7 +64,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <div class="question-quality">
+        <div class="question-hygiene">
           Rate on overall Hygiene level maintained in Canteen
           <small class="text-muted">
             <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
@@ -84,7 +82,7 @@
               <tr *ngFor="let item of hygieneOfItems; let i = index">
                 <th scope="row">{{item.hygieneOf}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="item{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="hygieneofitem{{i}}">
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -97,6 +95,57 @@
 
     <div class="row">
       <div class="col-sm">
+        <div class="question-absence">How often do you encounter with the absence of menu item or any other item?</div>
+        <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence">
+          <mat-radio-button class="absence-radio-button" *ngFor="let times of absenceMenuItemTimes" [value]="times">
+            {{times}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="question-other-parameters">
+            Other Parameters:
+          <small class="text-muted">
+            <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+          </small>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" *ngFor="let rating of ratings">{{rating}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let parameter of otherParameters; let i = index">
+                <th scope="row">{{parameter.parameter}}</th>
+                <td *ngFor="let rating of ratings" >
+                  <mat-radio-group [(ngModel)]="surveyModel.otherParameters[i].rating" name="parameter{{i}}">
+                    <mat-radio-button [value]="rating"></mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm">
+        <div>Other Suggestions/Comments</div>
+        <mat-form-field class="form-input-full-width">
+          <textarea matInput placeholder="Your answer" [(ngModel)]="surveyModel.otherSuggestions" name="suggestion"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
           <button mat-raised-button color="primary">Submit</button>
       </div>
     </div>
@@ -104,3 +153,6 @@
   </form>
 </div>
 
+<pre>
+    {{ diagnostic | json }}
+</pre>

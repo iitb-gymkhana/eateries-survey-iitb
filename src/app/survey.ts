@@ -5,7 +5,7 @@ export class Survey {
         public frequency: String,
         public foodItems: Array<Object>,
         public hygieneOfItems: Array<Object>,
-        public absenceMenuItem: String,
+        public absenceMenuItemTimes: String,
         public otherParameters: Array<Object>,
         public otherSuggestions?: String
     ) { }
