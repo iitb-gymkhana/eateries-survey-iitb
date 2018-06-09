@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Survey } from "../survey";
 
 @Component({
   selector: 'app-survey-form',
@@ -36,6 +37,22 @@ export class SurveyFormComponent implements OnInit {
   otherParameters = ['Staff Behaviour', 'Serving Time', 'Overall Experience'];
   ratings = ['1', '2', '3', '4', '5', 'No idea'];  
   
+  surveyModel = new Survey(
+    'xyz@iitb.ac.in', 
+    this.hostels[0],
+    this.frequencies[0],
+    this.foodItems,
+    this.hygieneLevels,
+    this.absenceMenuItems[0],
+    this.otherParameters);
+
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
+  // TODO: Remove this after debugging
+  get diagnostic() { return JSON.stringify(this.surveyModel); }
+
   constructor() { }
 
   ngOnInit() {

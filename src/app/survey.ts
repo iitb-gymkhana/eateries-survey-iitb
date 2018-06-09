@@ -1,7 +1,7 @@
 export class Survey {
     constructor(
         public email: String,
-        public hostel: number,
+        public hostel: String,
         public frequency: String,
         public foodRatings: Array<String>,
         public hygieneLevel: Array<String>,
