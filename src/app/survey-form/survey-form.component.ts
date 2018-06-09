@@ -10,41 +10,38 @@ export class SurveyFormComponent implements OnInit {
 
   hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
   frequencies = ['Almost daily', '2-3 times a week', 'Almost every week', 'Less than once a week'];
-  foodItems = ['Tea/Coffee',
-    'Soups',
-    'Milkshakes',
-    'Momos',
-    'Parathas',
-    'South indian dishes',
-    'Maggi',
-    'Veg frankies',
-    'Chicken frankies',
-    'Veg rice and noodles',
-    'Chicken rice and noodles',
-    'Veg Main Course',
-    'Paneer Main course',
-    'Chicken Main Course',
-    'Egg items',
-    'Sandwiches',
-    'Aamras',
-    'Nimbu pani',
-    'Patties/rolls'];
-  hygieneLevels = ['Cleanliness of utensils',	
-    'Cleanliness of Tables',
-    'Cleanliness of cook',
-    'Overall outlet cleanliness'];
+  foodItems = [
+    {name: 'Tea/Coffee', rating: ''},
+    {name: 'Soups', rating: ''},
+    {name: 'Milkshakes', rating: ''},
+    {name: 'Momos', rating: ''},
+    {name: 'Parathas', rating: ''},
+    {name: 'South indian dishes', rating: ''},
+    {name: 'Maggi', rating: ''},
+    {name: 'Veg frankies', rating: ''},
+    {name: 'Chicken frankies', rating: ''},
+    {name: 'Veg rice and noodles', rating: ''},
+    {name: 'Chicken rice and noodles', rating: ''},
+    {name: 'Veg Main Course', rating: ''},
+    {name: 'Paneer Main course', rating: ''},
+    {name: 'Chicken Main Course', rating: ''},
+    {name: 'Egg items', rating: ''},
+    {name: 'Sandwiches', rating: ''},
+    {name: 'Aamras', rating: ''},
+    {name: 'Nimbu pani', rating: ''},
+    {name: 'Patties/rolls', rating: ''}];
+
+  hygieneLevels = [
+    {hygieneOf: 'Cleanliness of utensils', level: ''},
+    {hygieneOf: 'Cleanliness of Tables', level: ''},
+    {hygieneOf: 'Cleanliness of cook', level: ''},
+    {hygieneOf: 'Overall outlet cleanliness', level: ''}];
+
   absenceMenuItems = ['Once', 'Two or three times a week', 'Rarely'];
   otherParameters = ['Staff Behaviour', 'Serving Time', 'Overall Experience'];
   ratings = ['1', '2', '3', '4', '5', 'No idea'];
   
-  surveyModel = new Survey(
-    '',
-    this.hostels[0],
-    this.frequencies[0],
-    this.foodItems,
-    this.hygieneLevels,
-    this.absenceMenuItems[0],
-    this.otherParameters);
+  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneLevels, '', [], '');
 
   submitted = false;
 

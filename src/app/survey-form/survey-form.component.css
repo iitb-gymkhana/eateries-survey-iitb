@@ -1,0 +1,17 @@
+.freq-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.question-freq {
+    margin-bottom: 15px;
+}
+
+.question-quality .help-text {
+    font-size: 0.8em;
+    color: gray;
+}
