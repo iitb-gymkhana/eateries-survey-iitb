@@ -5,7 +5,7 @@ var surveySchema = new Schema({
     email: String,
     hostel: String,
     frequency: String,
-    foodItems: [{item: String, rating: String}],
+    foodItems: [{name: String, rating: String}],
     hygieneOfItems: [{hygieneOf: String, level: String}],
     absenceMenuItemTimes: String,
     otherParameters: [{parameter: String, rating: String}],
