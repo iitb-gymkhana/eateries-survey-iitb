@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Survey } from "../survey";
+import { Survey } from '../survey';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-survey-form',
@@ -46,16 +49,22 @@ export class SurveyFormComponent implements OnInit {
     {parameter: 'Serving Time', rating: this.ratings[this.ratings.length - 1]},
     {parameter: 'Overall Experience', rating: this.ratings[this.ratings.length - 1]}];
   
-  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
+  // surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
+  surveyModel = new Survey('s@s.com', this.hostels[0], this.frequencies[0], this.foodItems, this.hygieneOfItems, this.absenceMenuItemTimes[0], this.otherParameters, '');
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    console.log(this.surveyModel);
+    console.log(this.http.get('http://localhost:3000/'));
+    this.http.post<Survey>('http://localhost:3000/', this.surveyModel)
+      .subscribe((res) => console.log(res));
+  }
 
   // TODO: Remove this after debugging
   get diagnostic() { return this.surveyModel; }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
