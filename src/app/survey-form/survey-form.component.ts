@@ -11,6 +11,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class SurveyFormComponent implements OnInit {
 
+  apiBaseUrl = 'http://localhost:3000';
+
   ratings = ['1', '2', '3', '4', '5', 'No idea'];
 
   hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
@@ -55,7 +57,6 @@ export class SurveyFormComponent implements OnInit {
   submitting = false;
 
   async onDataSubmission(res) {
-    await new Promise(resolve => setTimeout(resolve, 3000));
     console.log(res);
     this.submitting = false;
     this.submitted = true;
@@ -64,7 +65,7 @@ export class SurveyFormComponent implements OnInit {
   }
   onSubmit() {
     this.submitting = true;
-    this.http.post<Survey>('http://localhost:3000/', this.surveyModel)
+    this.http.post<Survey>(`${this.apiBaseUrl}/eateries-survey/api/submit`, this.surveyModel)
       .subscribe((res) => this.onDataSubmission(res));
   }
 

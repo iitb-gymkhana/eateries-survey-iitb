@@ -17,7 +17,7 @@ db.on('open', function() {
   console.log('Successfully connected')
 });
 
-router.post('/', function(req, res, next) {
+router.post('/submit', function(req, res, next) {
   Survey.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
