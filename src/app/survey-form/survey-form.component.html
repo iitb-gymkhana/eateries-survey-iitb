@@ -1,9 +1,9 @@
 <div class="container-fluid">
-  <form>
+  <form #surveyForm="ngForm">
     <div class="row">
       <div class="email col-sm">
         <mat-form-field class="form-input-full-width">
-          <input matInput placeholder="Email" [(ngModel)]="surveyModel.email" name="email" required>
+          <input matInput placeholder="Email" pattern="[^ @]*@[^ @]*" [(ngModel)]="surveyModel.email" name="email" required>
         </mat-form-field>
       </div>
     </div>
@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-sm">
         <mat-form-field class="form-input-full-width">
-          <mat-select placeholder="Your hostel" [(ngModel)]="surveyModel.hostel" name="hostel">
+          <mat-select placeholder="Your hostel" [(ngModel)]="surveyModel.hostel" name="hostel" required>
             <mat-option *ngFor="let hostel of hostels" [value]="hostel">
               Hostel {{hostel}}
             </mat-option>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="question-freq">How frequently do you visit canteen?</div>
-        <mat-radio-group class="freq-radio-group" [(ngModel)]="surveyModel.frequency" name="frequency">
+        <mat-radio-group class="freq-radio-group" [(ngModel)]="surveyModel.frequency" name="frequency" required>
           <mat-radio-button class="freq-radio-button" *ngFor="let frequency of frequencies" [value]="frequency">
             {{frequency}}
           </mat-radio-button>
@@ -51,7 +51,7 @@
               <tr *ngFor="let item of foodItems; let i = index">
                 <th scope="row">{{item.name}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="fooditem{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="fooditem{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -82,7 +82,7 @@
               <tr *ngFor="let item of hygieneOfItems; let i = index">
                 <th scope="row">{{item.hygieneOf}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="hygieneofitem{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="hygieneofitem{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -96,7 +96,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="question-absence">How often do you encounter with the absence of menu item or any other item?</div>
-        <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence">
+        <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence" required>
           <mat-radio-button class="absence-radio-button" *ngFor="let times of absenceMenuItemTimes" [value]="times">
             {{times}}
           </mat-radio-button>
@@ -124,7 +124,7 @@
               <tr *ngFor="let parameter of otherParameters; let i = index">
                 <th scope="row">{{parameter.parameter}}</th>
                 <td *ngFor="let rating of ratings" >
-                  <mat-radio-group [(ngModel)]="surveyModel.otherParameters[i].rating" name="parameter{{i}}">
+                  <mat-radio-group [(ngModel)]="surveyModel.otherParameters[i].rating" name="parameter{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
                   </mat-radio-group>
                 </td>
@@ -146,7 +146,7 @@
 
     <div class="row">
       <div class="col-sm">
-          <button mat-raised-button color="primary">Submit</button>
+          <button mat-raised-button color="primary" [disabled]="!surveyForm.form.valid">Submit</button>
       </div>
     </div>
 

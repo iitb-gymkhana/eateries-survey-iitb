@@ -8,43 +8,43 @@ import { Survey } from "../survey";
 })
 export class SurveyFormComponent implements OnInit {
 
+  ratings = ['1', '2', '3', '4', '5', 'No idea'];
+
   hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
   frequencies = ['Almost daily', '2-3 times a week', 'Almost every week', 'Less than once a week'];
   foodItems = [
-    {name: 'Tea/Coffee', rating: ''},
-    {name: 'Soups', rating: ''},
-    {name: 'Milkshakes', rating: ''},
-    {name: 'Momos', rating: ''},
-    {name: 'Parathas', rating: ''},
-    {name: 'South indian dishes', rating: ''},
-    {name: 'Maggi', rating: ''},
-    {name: 'Veg frankies', rating: ''},
-    {name: 'Chicken frankies', rating: ''},
-    {name: 'Veg rice and noodles', rating: ''},
-    {name: 'Chicken rice and noodles', rating: ''},
-    {name: 'Veg Main Course', rating: ''},
-    {name: 'Paneer Main course', rating: ''},
-    {name: 'Chicken Main Course', rating: ''},
-    {name: 'Egg items', rating: ''},
-    {name: 'Sandwiches', rating: ''},
-    {name: 'Aamras', rating: ''},
-    {name: 'Nimbu pani', rating: ''},
-    {name: 'Patties/rolls', rating: ''}];
+    {name: 'Tea/Coffee', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Soups', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Milkshakes', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Momos', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Parathas', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'South indian dishes', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Maggi', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Veg frankies', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Chicken frankies', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Veg rice and noodles', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Chicken rice and noodles', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Veg Main Course', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Paneer Main course', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Chicken Main Course', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Egg items', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Sandwiches', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Aamras', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Nimbu pani', rating: this.ratings[this.ratings.length - 1]},
+    {name: 'Patties/rolls', rating: this.ratings[this.ratings.length - 1]}];
 
   hygieneOfItems = [
-    {hygieneOf: 'Cleanliness of utensils', level: ''},
-    {hygieneOf: 'Cleanliness of Tables', level: ''},
-    {hygieneOf: 'Cleanliness of cook', level: ''},
-    {hygieneOf: 'Overall outlet cleanliness', level: ''}];
+    {hygieneOf: 'Cleanliness of utensils', level: this.ratings[this.ratings.length - 1]},
+    {hygieneOf: 'Cleanliness of Tables', level: this.ratings[this.ratings.length - 1]},
+    {hygieneOf: 'Cleanliness of cook', level: this.ratings[this.ratings.length - 1]},
+    {hygieneOf: 'Overall outlet cleanliness', level: this.ratings[this.ratings.length - 1]}];
 
   absenceMenuItemTimes = ['Once', 'Two or three times a week', 'Rarely'];
 
   otherParameters = [
-    {parameter: 'Staff Behaviour', rating: ''},
-    {parameter: 'Serving Time', rating: ''},
-    {parameter: 'Overall Experience', rating: ''}];
-
-  ratings = ['1', '2', '3', '4', '5', 'No idea'];
+    {parameter: 'Staff Behaviour', rating: this.ratings[this.ratings.length - 1]},
+    {parameter: 'Serving Time', rating: this.ratings[this.ratings.length - 1]},
+    {parameter: 'Overall Experience', rating: this.ratings[this.ratings.length - 1]}];
   
   surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
 
