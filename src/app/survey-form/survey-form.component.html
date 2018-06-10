@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <div class="container">
-  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+  <mat-progress-bar mode="buffer" [hidden]="!submitting"></mat-progress-bar>
+  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="submitted || submitting">
     <div class="row">
       <div class="email col-sm">
         <mat-form-field class="form-input-full-width">
@@ -153,6 +154,12 @@
     </div>
 
   </form>
+
+  <div class="row" [hidden]="!submitted">
+    <div class="col-sm">
+      Thank you for submitting the form
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

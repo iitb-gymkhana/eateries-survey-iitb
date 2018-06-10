@@ -8,6 +8,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from "@angular/common/http";
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
@@ -30,7 +31,8 @@ import { HeaderComponent } from './header/header.component';
     MatSelectModule,
     MatRadioModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

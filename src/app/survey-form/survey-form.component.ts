@@ -49,16 +49,23 @@ export class SurveyFormComponent implements OnInit {
     {parameter: 'Serving Time', rating: this.ratings[this.ratings.length - 1]},
     {parameter: 'Overall Experience', rating: this.ratings[this.ratings.length - 1]}];
   
-  // surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
-  surveyModel = new Survey('s@s.com', this.hostels[0], this.frequencies[0], this.foodItems, this.hygieneOfItems, this.absenceMenuItemTimes[0], this.otherParameters, '');
+  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
 
   submitted = false;
+  submitting = false;
 
+  async onDataSubmission(res) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    console.log(res);
+    this.submitting = false;
+    this.submitted = true;
+    this.surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
+
+  }
   onSubmit() {
-    console.log(this.surveyModel);
-    console.log(this.http.get('http://localhost:3000/'));
+    this.submitting = true;
     this.http.post<Survey>('http://localhost:3000/', this.surveyModel)
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => this.onDataSubmission(res));
   }
 
   // TODO: Remove this after debugging
