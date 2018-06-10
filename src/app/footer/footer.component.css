@@ -1,0 +1,9 @@
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+.footer {
+    margin-top: 20px;
+}
+
+.footer span {
+    font-size: 0.6em;
+}

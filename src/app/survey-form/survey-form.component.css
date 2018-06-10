@@ -28,9 +28,13 @@
 form {
     width: 100%;
     min-width: 200px;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .form-input-full-width {
     width: 100%;
+}
+
+.container {
+    margin-top: 40px;
 }

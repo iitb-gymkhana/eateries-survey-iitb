@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<app-header></app-header>
+
+<div class="container">
   <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
     <div class="row">
       <div class="email col-sm">
@@ -153,6 +155,7 @@
   </form>
 </div>
 
-<pre>
+<app-footer></app-footer>
+<!-- <pre>
     {{ diagnostic | json }}
-</pre>
+</pre> -->
