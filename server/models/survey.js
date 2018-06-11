@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment-timezone');
 
 var surveySchema = new Schema({
     email: String,
@@ -10,13 +11,14 @@ var surveySchema = new Schema({
     absenceMenuItemTimes: String,
     otherParameters: [{parameter: String, rating: String}],
     otherSuggestions: String,
-    submitted_on: Date
+    submittedOn: Date
 });
 
 surveySchema.pre('save', function(next) {
-    this.submitted_on = new Date();
-
+    this.submittedOn = moment(new Date());
     next();
 });
 
+console.log(moment(new Date()).tz('Asia/Kolkata').format());
+console.log(new Date());
 module.exports = mongoose.model('Survey', surveySchema);
