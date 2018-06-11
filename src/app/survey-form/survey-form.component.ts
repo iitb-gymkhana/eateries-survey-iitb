@@ -3,6 +3,7 @@ import { Survey } from '../survey';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-survey-form',
@@ -11,7 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class SurveyFormComponent implements OnInit {
 
-  apiBaseUrl = 'http://localhost:3000';
+  apiBaseUrl = environment.apiBaseUrl;
 
   ratings = ['1', '2', '3', '4', '5', 'No idea'];
 
