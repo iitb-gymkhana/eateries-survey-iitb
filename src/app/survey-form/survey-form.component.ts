@@ -50,7 +50,7 @@ export class SurveyFormComponent implements OnInit {
     {parameter: 'Staff Behaviour', rating: this.ratings[this.ratings.length - 1]},
     {parameter: 'Serving Time', rating: this.ratings[this.ratings.length - 1]},
     {parameter: 'Overall Experience', rating: this.ratings[this.ratings.length - 1]}];
-  
+
   surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
 
   submitted = false;

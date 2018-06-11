@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <div class="container">
   <mat-progress-bar mode="buffer" [hidden]="!submitting"></mat-progress-bar>
   <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="submitted || submitting">
@@ -14,7 +12,7 @@
     <div class="row">
       <div class="col-sm">
         <mat-form-field class="form-input-full-width">
-          <mat-select placeholder="Your hostel" [(ngModel)]="surveyModel.hostel" name="hostel" required>
+          <mat-select placeholder="Hostel" [(ngModel)]="surveyModel.hostel" name="hostel" required>
             <mat-option *ngFor="let hostel of hostels" [value]="hostel">
               Hostel {{hostel}}
             </mat-option>
@@ -25,7 +23,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <div class="question-freq">How frequently do you visit canteen?</div>
+        <div class="question-freq"><strong>How frequently do you visit canteen?</strong></div>
         <mat-radio-group class="freq-radio-group" [(ngModel)]="surveyModel.frequency" name="frequency" required>
           <mat-radio-button class="freq-radio-button" *ngFor="let frequency of frequencies" [value]="frequency">
             {{frequency}}
@@ -37,7 +35,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="question-quality">
-          Rate the quality of food items in canteen
+          <strong>Rate the quality of food items in canteen</strong>
           <small class="text-muted">
             <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
           </small>
@@ -68,7 +66,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="question-hygiene">
-          Rate on overall Hygiene level maintained in Canteen
+          <strong>Rate on overall Hygiene level maintained in Canteen</strong>
           <small class="text-muted">
             <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
           </small>
@@ -98,7 +96,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <div class="question-absence">How often do you encounter with the absence of menu item or any other item?</div>
+        <div class="question-absence"><strong>How often do you encounter with the absence of menu item or any other item?</strong></div>
         <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence" required>
           <mat-radio-button class="absence-radio-button" *ngFor="let times of absenceMenuItemTimes" [value]="times">
             {{times}}
@@ -110,7 +108,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="question-other-parameters">
-            Other Parameters:
+            <strong>Other Parameters</strong>:
           <small class="text-muted">
             <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
           </small>
@@ -140,7 +138,7 @@
     
     <div class="row">
       <div class="col-sm">
-        <div>Other Suggestions/Comments</div>
+        <div><strong>Other Suggestions/Comments</strong></div>
         <mat-form-field class="form-input-full-width">
           <textarea matInput placeholder="Your answer" [(ngModel)]="surveyModel.otherSuggestions" name="suggestion"></textarea>
         </mat-form-field>
@@ -161,8 +159,3 @@
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>
-<!-- <pre>
-    {{ diagnostic | json }}
-</pre> -->
