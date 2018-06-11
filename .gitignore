@@ -33,7 +33,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
+package-lock.json
+eateries_survey_data.csv
 # System Files
 .DS_Store
 Thumbs.db
