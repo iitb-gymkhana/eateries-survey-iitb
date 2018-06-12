@@ -6,7 +6,7 @@ var moment = require('moment-timezone');
 var fs = require('fs');
 var path = require('path');
 
-require("dotenv").config();
+require("dotenv").config({path: '../.env'});
 
 var host = process.env.DB_HOST;
 var username = process.env.DB_USER;
