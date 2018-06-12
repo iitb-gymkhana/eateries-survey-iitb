@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-form-field>
+    <mat-select placeholder="Select hostel" (selectionChange)="getHostelData($event)">
+      <mat-option *ngFor="let hostel of hostels" [value]="hostel">
+        Hostel {{ hostel }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
