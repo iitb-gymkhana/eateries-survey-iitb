@@ -14,13 +14,16 @@ import { AppComponent } from './app.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SurveyFormComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { HeaderComponent } from './header/header.component';
     MatRadioModule,
     HttpClientModule,
     MatToolbarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

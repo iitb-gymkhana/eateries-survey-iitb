@@ -30,6 +30,13 @@ router.post('/submit', function(req, res, next) {
   });
 });
 
+router.get('/hostel/:number', function(req, res, next) {
+  Survey.find({'hostel': req.params.number}, '-_id', function(err, data) {
+    if (err) next(err);
+    res.send(data);
+  });
+});
+
 router.get('/csv', function(req, res, next) {
   Survey.find({}, function(err, data) {
     if (err) next(err);

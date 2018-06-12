@@ -67,7 +67,7 @@ export class SurveyFormComponent implements OnInit {
   }
   onSubmit() {
     this.submitting = true;
-    this.http.post<Survey>(`${this.apiBaseUrl}/eateries-survey/api/submit`, this.surveyModel)
+    this.http.post<Survey>(`${this.apiBaseUrl}/submit`, this.surveyModel)
       .subscribe((res) => this.onDataSubmission(res));
   }
 
