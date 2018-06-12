@@ -8,9 +8,9 @@
   </mat-form-field>
 
   <div [hidden]="!gotData">
-    <h1>Visualizations</h1>
     <app-barchart *ngFor="let data of chartData; let i = index"
-      [data]="data">
+      [data]="data"
+      [canvasId]="'canvas'+i">
   </app-barchart>
   </div>
 </div>

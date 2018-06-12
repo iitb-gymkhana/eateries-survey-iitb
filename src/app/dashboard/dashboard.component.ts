@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
     for (i = 0; i < fields.length; i++) {
       const _data = {
         title: fields[i],
-        id: 'canvas' + i
+        // id: 'canvas' + i
       };
 
       const dataset = {};

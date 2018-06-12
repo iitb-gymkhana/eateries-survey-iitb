@@ -8,6 +8,7 @@ import { Chart } from 'chart.js';
 })
 export class BarchartComponent implements OnInit, AfterViewInit {
   @Input() data: Object;
+  @Input() canvasId: string;
 
   chart = [];
 
@@ -17,7 +18,7 @@ export class BarchartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const id = document.getElementById(this.data['id']);
+    const id = document.getElementById(this.canvasId);
 
     const dataset = [];
     let i;
