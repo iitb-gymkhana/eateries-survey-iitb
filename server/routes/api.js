@@ -23,6 +23,54 @@ db.on('open', function() {
   console.log('Successfully connected')
 });
 
+function getSurveyDict(data) {
+  var i, j;
+
+  var dict = {
+    // 'email': [],
+    'hostel': [],
+    'frequency': [],
+    'absenceMenuItemTimes': [],
+    // 'otherSuggestions': [],
+    // 'submittedOn': []
+  }
+
+  for (i = 0; i < data.length; i++) {
+    var d = data[i];
+    // dict['email'].push(d['email']);
+    dict['hostel'].push(d['hostel']);
+    dict['frequency'].push(d['frequency']);
+    dict['absenceMenuItemTimes'].push(d['absenceMenuItemTimes']);
+    // dict['otherSuggestions'].push(d['otherSuggestions']);
+
+    for (j = 0; j < d['foodItems'].length; j++) {
+      var item = d['foodItems'][j];
+
+      if (!(item.name in dict)) dict[item.name] = [];
+      dict[item.name].push(item.rating);
+    }
+
+    for (j = 0; j < d['hygieneOfItems'].length; j++) {
+      var item = d['hygieneOfItems'][j];
+
+      if (!(item.hygieneOf in dict)) dict[item.hygieneOf] = [];
+      dict[item.hygieneOf].push(item.level);
+    }
+
+    // for (j = 0; j < d['otherParameters'].length; j++) {
+    //   var p = d['otherParameters'][j];
+
+    //   if (!(p.parameter in dict)) dict[p.parameter] = [];
+    //   dict[p.parameter].push(p.rating);
+    // }
+    
+    // dict['submittedOn'].push(moment(d['submittedOn']).tz(TZ).format());
+  }
+
+  return dict;
+
+}
+
 router.post('/submit', function(req, res, next) {
   Survey.create(req.body, function (err, post) {
     if (err) {
@@ -37,7 +85,7 @@ router.post('/submit', function(req, res, next) {
 router.get('/hostel/:number', function(req, res, next) {
   Survey.find({'hostel': req.params.number}, '-_id', function(err, data) {
     if (err) next(err);
-    res.json(data);
+    res.json(getSurveyDict(data));
   });
 });
 
@@ -46,54 +94,13 @@ router.get('/csv', function(req, res, next) {
     if (err) next(err);
     // console.log(data);
 
-    var i;
-    var csvData = {
-      'email': [],
-      'hostel': [],
-      'frequency': [],
-      'absenceMenuItemTimes': [],
-      'otherSuggestions': [],
-      'submittedOn': []
-    }
+    csvDict = getSurveyDict(data);
 
-    for (i = 0; i < data.length; i++) {
-      var d = data[i];
-      csvData['email'].push(d['email']);
-      csvData['hostel'].push(d['hostel']);
-      csvData['frequency'].push(d['frequency']);
-      csvData['absenceMenuItemTimes'].push(d['absenceMenuItemTimes']);
-      csvData['otherSuggestions'].push(d['otherSuggestions']);
-
-      var j;
-      for (j = 0; j < d['foodItems'].length; j++) {
-        var item = d['foodItems'][j];
-
-        if (!(item.name in csvData)) csvData[item.name] = [];
-        csvData[item.name].push(item.rating);
-      }
-
-      for (j = 0; j < d['hygieneOfItems'].length; j++) {
-        var item = d['hygieneOfItems'][j];
-
-        if (!(item.hygieneOf in csvData)) csvData[item.hygieneOf] = [];
-        csvData[item.hygieneOf].push(item.level);
-      }
-
-      for (j = 0; j < d['otherParameters'].length; j++) {
-        var p = d['otherParameters'][j];
-
-        if (!(p.parameter in csvData)) csvData[p.parameter] = [];
-        csvData[p.parameter].push(p.rating);
-      }
-      
-      csvData['submittedOn'].push(moment(d['submittedOn']).tz(TZ).format());
-    }
-
-    fields = Object.keys(csvData);
+    fields = Object.keys(csvDict);
     var csvArrays = []
 
     for (i = 0; i < fields.length; i++) {
-      csvArrays.push(csvData[fields[i]])
+      csvArrays.push(csvDict[fields[i]])
     }
 
     csvArrays = csvArrays[0].map((x, i) => csvArrays.map(x => x[i]));
