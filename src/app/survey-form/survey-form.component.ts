@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Survey } from '../survey';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters } from '../survey-variables';
 
 @Component({
   selector: 'app-survey-form',
@@ -13,44 +12,13 @@ import { environment } from '../../environments/environment';
 export class SurveyFormComponent implements OnInit {
 
   apiBaseUrl = environment.apiBaseUrl;
-
-  ratings = ['1', '2', '3', '4', '5', 'No idea'];
-
-  hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
-  frequencies = ['Almost daily', '2-3 times a week', 'Almost every week', 'Less than once a week'];
-  foodItems = [
-    {name: 'Tea/Coffee', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Soups', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Milkshakes', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Momos', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Parathas', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'South indian dishes', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Maggi', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Veg frankies', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Chicken frankies', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Veg rice and noodles', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Chicken rice and noodles', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Veg Main Course', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Paneer Main course', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Chicken Main Course', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Egg items', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Sandwiches', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Aamras', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Nimbu pani', rating: this.ratings[this.ratings.length - 1]},
-    {name: 'Patties/rolls', rating: this.ratings[this.ratings.length - 1]}];
-
-  hygieneOfItems = [
-    {hygieneOf: 'Cleanliness of utensils', level: this.ratings[this.ratings.length - 1]},
-    {hygieneOf: 'Cleanliness of Tables', level: this.ratings[this.ratings.length - 1]},
-    {hygieneOf: 'Cleanliness of cook', level: this.ratings[this.ratings.length - 1]},
-    {hygieneOf: 'Overall outlet cleanliness', level: this.ratings[this.ratings.length - 1]}];
-
-  absenceMenuItemTimes = ['Once', 'Two or three times a week', 'Rarely'];
-
-  otherParameters = [
-    {parameter: 'Staff Behaviour', rating: this.ratings[this.ratings.length - 1]},
-    {parameter: 'Serving Time', rating: this.ratings[this.ratings.length - 1]},
-    {parameter: 'Overall Experience', rating: this.ratings[this.ratings.length - 1]}];
+  ratings = ratings;
+  hostels = hostels;
+  frequencies = frequencies;
+  foodItems = foodItems;
+  hygieneOfItems = hygieneOfItems;
+  absenceMenuItemTimes = absenceMenuItemTimes;
+  otherParameters = otherParameters;
 
   surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
   // surveyModel = new Survey('s@s.com', 'd', 'd', this.foodItems, this.hygieneOfItems, 'd', this.otherParameters, 'd');
