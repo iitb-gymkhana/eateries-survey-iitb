@@ -58,7 +58,7 @@ export class SurveyFormComponent implements OnInit {
   submitted = false;
   submitting = false;
 
-  async onDataSubmission(res) {
+  onDataSubmission(res) {
     console.log(res);
     this.submitting = false;
     this.submitted = true;

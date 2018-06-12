@@ -25,15 +25,19 @@ db.on('open', function() {
 
 router.post('/submit', function(req, res, next) {
   Survey.create(req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
+    if (err) {
+      res.json({'status': 'failed'})
+      return next(err);
+    } else {
+      res.json({'status': 'successful'});
+    }
   });
 });
 
 router.get('/hostel/:number', function(req, res, next) {
   Survey.find({'hostel': req.params.number}, '-_id', function(err, data) {
     if (err) next(err);
-    res.send(data);
+    res.json(data);
   });
 });
 
