@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   hygieneOfItems = hygieneOfItems;
   absenceMenuItemTimes = absenceMenuItemTimes;
   otherParameters = otherParameters;
+  fetchingData = false;
 
   chartData = [];
   gotData = false;
@@ -60,12 +61,13 @@ export class DashboardComponent implements OnInit {
       this.chartData.push(_data);
     }
 
-    console.log(this.chartData);
+    this.fetchingData = false;
     this.gotData = true;
   }
 
   getHostelData($event) {
     this.gotData = false;
+    this.fetchingData = true;
     const hostel = $event.value;
     this.http.get<Survey[]>(`${this.apiBaseUrl}/hostel/${hostel}`)
       .subscribe((res) => this.getAggregatedData(res));

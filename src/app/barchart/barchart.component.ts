@@ -26,8 +26,7 @@ export class BarchartComponent implements OnInit, AfterViewInit {
       const j = this.data['dataset'][this.data['labels'][i]];
       j ? dataset.push(j) : dataset.push(0);
     }
-    console.log(this.data['labels']);
-    console.log(dataset);
+    
     this.chart = new Chart(id, {
       type: 'bar',
       data: {

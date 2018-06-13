@@ -19,6 +19,4 @@ surveySchema.pre('save', function(next) {
     next();
 });
 
-console.log(moment(new Date()).tz('Asia/Kolkata').format());
-console.log(new Date());
 module.exports = mongoose.model('Survey', surveySchema);

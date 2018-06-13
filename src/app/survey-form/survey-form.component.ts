@@ -27,7 +27,6 @@ export class SurveyFormComponent implements OnInit {
   submitting = false;
 
   onDataSubmission(res) {
-    console.log(res);
     this.submitting = false;
     this.submitted = true;
     this.surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
