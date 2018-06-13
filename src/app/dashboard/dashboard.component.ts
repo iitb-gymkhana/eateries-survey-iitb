@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Survey } from '../survey';
 import { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters } from '../survey-variables';
+import { MatSnackBar } from '@angular/material'
 
 @Component({
   selector: 'app-dashboard',
@@ -23,10 +24,17 @@ export class DashboardComponent implements OnInit {
 
   chartData = [];
   gotData = false;
-  a = false;
 
-  getAggregatedData(data) {
+  getAggregatedData(data, hostel) {
     const fields = Object.keys(data);
+
+    if (fields.length === 0) {
+      this.snackbar.open(
+        `No survey data is availble for Hostel ${hostel}`,
+        'Close',
+        {'duration': 15000}
+      );
+    }
     let i, j;
 
     for (i = 0; i < fields.length; i++) {
@@ -69,11 +77,13 @@ export class DashboardComponent implements OnInit {
     this.gotData = false;
     this.fetchingData = true;
     const hostel = $event.value;
+    this.chartData = [];
+    const _ = this.snackbar.dismiss();
     this.http.get<Survey[]>(`${this.apiBaseUrl}/hostel/${hostel}`)
-      .subscribe((res) => this.getAggregatedData(res));
+      .subscribe((res) => this.getAggregatedData(res, hostel));
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }

@@ -1,18 +1,33 @@
 <div class="container">
-  <mat-form-field>
-    <mat-select placeholder="Select hostel" (selectionChange)="getHostelData($event)">
-      <mat-option *ngFor="let hostel of hostels" [value]="hostel">
-        Hostel {{ hostel }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="row">
+    <div class="col-sm">
+        <mat-form-field>
+          <mat-select placeholder="Select hostel" (selectionChange)="getHostelData($event)" #hostelDropDown>
+            <mat-option *ngFor="let hostel of hostels" [value]="hostel">
+              Hostel {{ hostel }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-sm download-csv-button">
+      <a href="{{apiBaseUrl}}/csv">
+        <button mat-raised-button>
+          Download CSV
+        </button>      
+      </a>
+    </div>
+  </div>
 
   <mat-progress-bar mode="buffer" [hidden]="!fetchingData"></mat-progress-bar>
 
-  <div [hidden]="!gotData">
-    <app-barchart *ngFor="let data of chartData; let i = index"
-      [data]="data"
-      [canvasId]="'canvas'+i">
-  </app-barchart>
+  <div class="row charts">
+    <div class="col-sm">
+      <div [hidden]="!gotData">
+          <app-barchart *ngFor="let data of chartData; let i = index"
+            [data]="data"
+            [canvasId]="'canvas'+i">
+        </app-barchart>
+      </div>      
+    </div>
   </div>
 </div>

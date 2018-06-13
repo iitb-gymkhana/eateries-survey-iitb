@@ -9,6 +9,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from "@angular/common/http";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { SurveyFormComponent } from './survey-form/survey-form.component';
@@ -38,7 +39,8 @@ import { BarchartComponent } from './barchart/barchart.component';
     HttpClientModule,
     MatToolbarModule,
     MatProgressBarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

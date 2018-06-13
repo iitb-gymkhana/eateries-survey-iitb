@@ -6,7 +6,7 @@ var moment = require('moment-timezone');
 var fs = require('fs');
 var path = require('path');
 
-require("dotenv").config({path: '../.env'});
+require("dotenv").config();
 
 var host = process.env.DB_HOST;
 var username = process.env.DB_USER;
@@ -34,6 +34,8 @@ function getSurveyDict(data) {
     // 'otherSuggestions': [],
     // 'submittedOn': []
   }
+
+  if (data.length === 0) dict = {};
 
   for (i = 0; i < data.length; i++) {
     var d = data[i];
