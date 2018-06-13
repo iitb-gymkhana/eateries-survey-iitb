@@ -21,13 +21,11 @@
   <mat-progress-bar mode="buffer" [hidden]="!fetchingData"></mat-progress-bar>
 
   <div class="row charts">
-    <div class="col-sm">
-      <div [hidden]="!gotData">
-          <app-barchart *ngFor="let data of chartData; let i = index"
-            [data]="data"
-            [canvasId]="'canvas'+i">
-        </app-barchart>
-      </div>      
-    </div>
+    <div [hidden]="!gotData" class="col" *ngFor="let data of chartData; let i = index">
+        <app-barchart 
+          [data]="data"
+          [canvasId]="'canvas'+i">
+      </app-barchart>
+    </div>      
   </div>
 </div>
