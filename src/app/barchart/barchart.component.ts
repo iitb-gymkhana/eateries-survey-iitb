@@ -9,6 +9,7 @@ import { Chart } from 'chart.js';
 export class BarchartComponent implements OnInit, AfterViewInit {
   @Input() data: Object;
   @Input() canvasId: string;
+  @Input() numData: number;
 
   chart = [];
 
@@ -41,7 +42,8 @@ export class BarchartComponent implements OnInit, AfterViewInit {
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero:true
+                      beginAtZero:true,
+                      max: this.numData
                   }
               }],
               xAxes: [{

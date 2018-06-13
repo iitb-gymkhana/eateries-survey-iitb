@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   absenceMenuItemTimes = absenceMenuItemTimes;
   otherParameters = otherParameters;
   fetchingData = false;
+  numData = 0;
 
   chartData = [];
   gotData = false;
@@ -34,6 +35,8 @@ export class DashboardComponent implements OnInit {
         'Close',
         {'duration': 15000}
       );
+    } else {
+      this.numData = data['hostel'].length;
     }
     let i, j;
 
@@ -79,6 +82,7 @@ export class DashboardComponent implements OnInit {
     const hostel = $event.value;
     this.chartData = [];
     const _ = this.snackbar.dismiss();
+    this.numData = 0;
     this.http.get<Survey[]>(`${this.apiBaseUrl}/hostel/${hostel}`)
       .subscribe((res) => this.getAggregatedData(res, hostel));
   }
