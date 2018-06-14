@@ -22,10 +22,11 @@
 
   <div class="row charts">
     <div [hidden]="!gotData" class="col" *ngFor="let data of chartData; let i = index">
-        <app-barchart 
-          [data]="data"
-          [canvasId]="'canvas'+i"
-          [numData]="numData">
+      <app-barchart 
+        [data]="data"
+        [canvasId]="'canvas'+i"
+        [numData]="numData"
+        [index]="i">
       </app-barchart>
     </div>      
   </div>
