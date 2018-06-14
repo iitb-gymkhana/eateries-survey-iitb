@@ -1,6 +1,6 @@
 const ratings = ['1', '2', '3', '4', '5', 'No idea'];
 
-const hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+const hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', 'Tansa'];
 const frequencies = ['Almost daily', '2-3 times a week', 'Almost every week', 'Less than once a week'];
 const foodItems = [
     {name: 'Tea/Coffee', rating: ratings[ratings.length - 1]},
