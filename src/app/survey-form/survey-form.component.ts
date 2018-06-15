@@ -3,6 +3,7 @@ import { Survey } from '../survey';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters } from '../survey-variables';
+import { surveyOptionsMappings } from '../survey-variables.mapping';
 
 @Component({
   selector: 'app-survey-form',
@@ -19,6 +20,7 @@ export class SurveyFormComponent implements OnInit {
   hygieneOfItems = hygieneOfItems;
   absenceMenuItemTimes = absenceMenuItemTimes;
   otherParameters = otherParameters;
+  surveyOptionsMapping = surveyOptionsMappings;
 
   surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
   // surveyModel = new Survey('s@s.com', 'd', 'd', this.foodItems, this.hygieneOfItems, 'd', this.otherParameters, 'd');

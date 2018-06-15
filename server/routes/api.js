@@ -5,6 +5,7 @@ var Survey = require('../models/survey');
 var moment = require('moment-timezone');
 var fs = require('fs');
 var path = require('path');
+var surveyOptionsMapping = require('./survey-variables.mapping');
 
 require("dotenv").config();
 
@@ -40,34 +41,39 @@ function getSurveyDict(data) {
   for (i = 0; i < data.length; i++) {
     var d = data[i];
     // dict['email'].push(d['email']);
-    dict['hostel'].push(d['hostel']);
-    dict['frequency'].push(d['frequency']);
-    dict['absenceMenuItemTimes'].push(d['absenceMenuItemTimes']);
+    dict['hostel'].push(surveyOptionsMapping['hostels'][d['hostel']]);
+    dict['frequency'].push(surveyOptionsMapping['frequencies'][d['frequency']]);
+    dict['absenceMenuItemTimes'].push(surveyOptionsMapping['absenceMenuItemTimes'][d['absenceMenuItemTimes']]);
     // dict['otherSuggestions'].push(d['otherSuggestions']);
 
     for (j = 0; j < d['foodItems'].length; j++) {
       var item = d['foodItems'][j];
 
-      if (!(item.name in dict)) dict[item.name] = [];
-      dict[item.name].push(item.rating);
+      var name = surveyOptionsMapping['foodItems'][item.itemId];
+      
+      if (!(name in dict)) dict[name] = [];
+      dict[name].push(surveyOptionsMapping['ratings'][item.rating]);
     }
 
     for (j = 0; j < d['hygieneOfItems'].length; j++) {
       var item = d['hygieneOfItems'][j];
+      var name = surveyOptionsMapping['hygieneOfItems'][item.itemId];
 
-      if (!(item.hygieneOf in dict)) dict[item.hygieneOf] = [];
-      dict[item.hygieneOf].push(item.level);
+      if (!(name in dict)) dict[name] = [];
+      dict[name].push(surveyOptionsMapping['ratings'][item.level]);
     }
 
-    // for (j = 0; j < d['otherParameters'].length; j++) {
-    //   var p = d['otherParameters'][j];
+    for (j = 0; j < d['otherParameters'].length; j++) {
+      var p = d['otherParameters'][j];
+      var parameter = surveyOptionsMapping['otherParameters'][p.parameterId]
 
-    //   if (!(p.parameter in dict)) dict[p.parameter] = [];
-    //   dict[p.parameter].push(p.rating);
-    // }
+      if (!(parameter in dict)) dict[parameter] = [];
+      dict[parameter].push(surveyOptionsMapping['ratings'][p.rating]);
+    }
     
     // dict['submittedOn'].push(moment(d['submittedOn']).tz(TZ).format());
   }
+  console.log(dict);
 
   return dict;
 

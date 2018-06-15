@@ -6,10 +6,10 @@ var surveySchema = new Schema({
     email: String,
     hostel: String,
     frequency: String,
-    foodItems: [{name: String, rating: String}],
-    hygieneOfItems: [{hygieneOf: String, level: String}],
+    foodItems: [{itemId: String, rating: String}],
+    hygieneOfItems: [{itemId: String, level: String}],
     absenceMenuItemTimes: String,
-    otherParameters: [{parameter: String, rating: String}],
+    otherParameters: [{parameterId: String, rating: String}],
     otherSuggestions: String,
     submittedOn: Date
 });

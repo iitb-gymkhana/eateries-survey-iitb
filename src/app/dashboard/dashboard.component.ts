@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Survey } from '../survey';
 import { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters } from '../survey-variables';
-import { MatSnackBar } from '@angular/material'
+import { MatSnackBar } from '@angular/material';
+import { surveyOptionsMappings } from '../survey-variables.mapping';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
   hygieneOfItems = hygieneOfItems;
   absenceMenuItemTimes = absenceMenuItemTimes;
   otherParameters = otherParameters;
+  surveyOptionsMappings = surveyOptionsMappings;
   fetchingData = false;
   numData = 0;
 
@@ -31,7 +33,7 @@ export class DashboardComponent implements OnInit {
 
     if (fields.length === 0) {
       this.snackbar.open(
-        `No survey data is availble for Hostel ${hostel}`,
+        `No survey data is availble for Hostel ${surveyOptionsMappings['hostels'][hostel]}`,
         'Close',
         {'duration': 15000}
       );
@@ -48,8 +50,8 @@ export class DashboardComponent implements OnInit {
 
       const dataset = {};
 
+      const d = data[fields[i]];
       for (j = 0; j < data[fields[i]].length; j++) {
-        const d = data[fields[i]];
         dataset[d[j]] = dataset[d[j]] ? dataset[d[j]] + 1 : 1;
       }
 
@@ -59,13 +61,13 @@ export class DashboardComponent implements OnInit {
       const title = _data['title'];
 
       if (title === 'hostel') {
-        labels = hostels;
+        labels = hostels.map((x) => surveyOptionsMappings['hostels'][x]);
       } else if (title === 'frequency') {
-        labels = frequencies;
+        labels = frequencies.map((x) => surveyOptionsMappings['frequencies'][x]);
       } else if (title === 'absenceMenuItemTimes') {
-        labels = absenceMenuItemTimes;
+        labels = absenceMenuItemTimes.map((x) => surveyOptionsMappings['absenceMenuItemTimes'][x]);
       } else {
-        labels = ratings;
+        labels = ratings.map((x) => surveyOptionsMappings['ratings'][x]);
       }
       _data['labels'] = labels;
 

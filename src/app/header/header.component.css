@@ -3,3 +3,7 @@
 .title-center {
     margin: 0 auto;
 }
+
+.title-center:hover {
+    cursor: pointer;
+}

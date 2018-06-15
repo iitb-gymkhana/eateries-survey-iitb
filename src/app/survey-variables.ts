@@ -1,42 +1,60 @@
-const ratings = ['1', '2', '3', '4', '5', 'No idea'];
+import { surveyOptionsMappings } from './survey-variables.mapping';
 
-const hostels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', 'Tansa'];
-const frequencies = ['Almost daily', '2-3 times a week', 'Almost every week', 'Less than once a week'];
+function assertEqualLength(arr, option) {
+    if (arr.length !== Object.keys(surveyOptionsMappings[option]).length) {
+        console.error(`Few '${option}' options missing`);
+    }
+}
+
+const ratings = [0, 1, 2, 3, 4, 5];
+assertEqualLength(ratings, 'ratings');
+
+const hostels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+assertEqualLength(hostels, 'hostels');
+
+const frequencies = [0, 1, 2, 3];
+assertEqualLength(frequencies, 'frequencies');
+
+const noIdeaRating = ratings.length - 1;
 const foodItems = [
-    {name: 'Tea/Coffee', rating: ratings[ratings.length - 1]},
-    {name: 'Soups', rating: ratings[ratings.length - 1]},
-    {name: 'Milkshakes', rating: ratings[ratings.length - 1]},
-    {name: 'Momos', rating: ratings[ratings.length - 1]},
-    {name: 'Parathas', rating: ratings[ratings.length - 1]},
-    {name: 'South indian dishes', rating: ratings[ratings.length - 1]},
-    {name: 'Maggi', rating: ratings[ratings.length - 1]},
-    {name: 'Veg frankies', rating: ratings[ratings.length - 1]},
-    {name: 'Chicken frankies', rating: ratings[ratings.length - 1]},
-    {name: 'Veg rice and noodles', rating: ratings[ratings.length - 1]},
-    {name: 'Chicken rice and noodles', rating: ratings[ratings.length - 1]},
-    {name: 'Veg Main Course', rating: ratings[ratings.length - 1]},
-    {name: 'Paneer Main course', rating: ratings[ratings.length - 1]},
-    {name: 'Chicken Main Course', rating: ratings[ratings.length - 1]},
-    {name: 'Egg items', rating: ratings[ratings.length - 1]},
-    {name: 'Sandwiches', rating: ratings[ratings.length - 1]},
-    {name: 'Aamras', rating: ratings[ratings.length - 1]},
-    {name: 'Nimbu pani', rating: ratings[ratings.length - 1]},
-    {name: 'Patties/rolls', rating: ratings[ratings.length - 1]}
+    {itemId: 0, rating: noIdeaRating},
+    {itemId: 1, rating: noIdeaRating},
+    {itemId: 2, rating: noIdeaRating},
+    {itemId: 3, rating: noIdeaRating},
+    {itemId: 4, rating: noIdeaRating},
+    {itemId: 5, rating: noIdeaRating},
+    {itemId: 6, rating: noIdeaRating},
+    {itemId: 7, rating: noIdeaRating},
+    {itemId: 8, rating: noIdeaRating},
+    {itemId: 9, rating: noIdeaRating},
+    {itemId: 10, rating: noIdeaRating},
+    {itemId: 11, rating: noIdeaRating},
+    {itemId: 12, rating: noIdeaRating},
+    {itemId: 13, rating: noIdeaRating},
+    {itemId: 14, rating: noIdeaRating},
+    {itemId: 15, rating: noIdeaRating},
+    {itemId: 16, rating: noIdeaRating},
+    {itemId: 17, rating: noIdeaRating},
+    {itemId: 18, rating: noIdeaRating}
 ];
+assertEqualLength(foodItems, 'foodItems');
 
 const hygieneOfItems = [
-    {hygieneOf: 'Cleanliness of utensils', level: ratings[ratings.length - 1]},
-    {hygieneOf: 'Cleanliness of Tables', level: ratings[ratings.length - 1]},
-    {hygieneOf: 'Cleanliness of cook', level: ratings[ratings.length - 1]},
-    {hygieneOf: 'Overall outlet cleanliness', level: ratings[ratings.length - 1]}
+    {itemId: 0, level: noIdeaRating},
+    {itemId: 1, level: noIdeaRating},
+    {itemId: 2, level: noIdeaRating},
+    {itemId: 3, level: noIdeaRating}
 ];
+assertEqualLength(hygieneOfItems, 'hygieneOfItems');
 
-const absenceMenuItemTimes = ['Once', 'Two or three times a week', 'Rarely'];
+const absenceMenuItemTimes = [0, 1, 2];
+assertEqualLength(absenceMenuItemTimes, 'absenceMenuItemTimes');
 
 const otherParameters = [
-    {parameter: 'Staff Behaviour', rating: ratings[ratings.length - 1]},
-    {parameter: 'Serving Time', rating: ratings[ratings.length - 1]},
-    {parameter: 'Overall Experience', rating: ratings[ratings.length - 1]}
+    {parameterId: 0, rating: noIdeaRating},
+    {parameterId: 1, rating: noIdeaRating},
+    {parameterId: 2, rating: noIdeaRating}
 ];
+assertEqualLength(otherParameters, 'otherParameters');
 
-export { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters }
+export { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters };

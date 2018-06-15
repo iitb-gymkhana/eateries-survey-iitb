@@ -14,19 +14,18 @@
         <mat-form-field class="form-input-full-width">
           <mat-select placeholder="Hostel" [(ngModel)]="surveyModel.hostel" name="hostel" required>
             <mat-option *ngFor="let hostel of hostels" [value]="hostel">
-              Hostel {{hostel}}
+              Hostel {{ surveyOptionsMapping['hostels'][hostel]}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
     </div>
-
     <div class="row">
       <div class="col-sm">
         <div class="question-freq"><strong>How frequently do you visit canteen?</strong></div>
         <mat-radio-group class="freq-radio-group" [(ngModel)]="surveyModel.frequency" name="frequency" required>
           <mat-radio-button class="freq-radio-button" *ngFor="let frequency of frequencies" [value]="frequency">
-            {{frequency}}
+            {{ surveyOptionsMapping['frequencies'][frequency] }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -45,12 +44,12 @@
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col" *ngFor="let rating of ratings">{{rating}}</th>
+                <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of foodItems; let i = index">
-                <th scope="row">{{item.name}}</th>
+                <th scope="row">{{ surveyOptionsMapping['foodItems'][item.itemId]}}</th>
                 <td *ngFor="let rating of ratings" >
                   <mat-radio-group [(ngModel)]="surveyModel.foodItems[i].rating" name="fooditem{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
@@ -76,12 +75,12 @@
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col" *ngFor="let rating of ratings">{{rating}}</th>
+                <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of hygieneOfItems; let i = index">
-                <th scope="row">{{item.hygieneOf}}</th>
+                <th scope="row">{{surveyOptionsMapping['hygieneOfItems'][item.itemId]}}</th>
                 <td *ngFor="let rating of ratings" >
                   <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="hygieneofitem{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
@@ -99,7 +98,7 @@
         <div class="question-absence"><strong>How often do you encounter with the absence of menu item or any other item?</strong></div>
         <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence" required>
           <mat-radio-button class="absence-radio-button" *ngFor="let times of absenceMenuItemTimes" [value]="times">
-            {{times}}
+            {{ surveyOptionsMapping['absenceMenuItemTimes'][times] }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -118,12 +117,12 @@
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col" *ngFor="let rating of ratings">{{rating}}</th>
+                <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let parameter of otherParameters; let i = index">
-                <th scope="row">{{parameter.parameter}}</th>
+                <th scope="row">{{surveyOptionsMapping['otherParameters'][parameter.parameterId]}}</th>
                 <td *ngFor="let rating of ratings" >
                   <mat-radio-group [(ngModel)]="surveyModel.otherParameters[i].rating" name="parameter{{i}}" required>
                     <mat-radio-button [value]="rating"></mat-radio-button>
@@ -152,6 +151,8 @@
     </div>
 
   </form>
+
+  <pre>{{ diagnostic | json }}</pre>
 
   <div class="row" [hidden]="!submitted">
     <div class="col-sm">
