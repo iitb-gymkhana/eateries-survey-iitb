@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BarchartComponent } from './barchart/barchart.component';
+import { HomeComponent } from './home/home.component';
+import { SunriseDhabaFormComponent } from './sunrise-dhaba-form/sunrise-dhaba-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BarchartComponent } from './barchart/barchart.component';
     FooterComponent,
     HeaderComponent,
     DashboardComponent,
-    BarchartComponent
+    BarchartComponent,
+    HomeComponent,
+    SunriseDhabaFormComponent
   ],
   imports: [
     BrowserModule,

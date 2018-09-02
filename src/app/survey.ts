@@ -1,5 +1,7 @@
 export class Survey {
     constructor(
+        public name: String,
+        public phoneNumber: Number,
         public email: String,
         public hostel: String,
         public frequency: String,

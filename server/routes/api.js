@@ -28,7 +28,9 @@ function getSurveyDict(data) {
   var i, j;
 
   var dict = {
-    // 'email': [],
+    'name': [],
+    'phoneNumber': [],
+    'email': [],
     'hostel': [],
     'frequency': [],
     'absenceMenuItemTimes': [],
@@ -40,7 +42,9 @@ function getSurveyDict(data) {
 
   for (i = 0; i < data.length; i++) {
     var d = data[i];
-    // dict['email'].push(d['email']);
+    dict['name'].push(d['name']);
+    dict['phoneNumber'].push(d['phoneNumber']);
+    dict['email'].push(d['email']);
     dict['hostel'].push(surveyOptionsMapping['hostels'][d['hostel']]);
     dict['frequency'].push(surveyOptionsMapping['frequencies'][d['frequency']]);
     dict['absenceMenuItemTimes'].push(surveyOptionsMapping['absenceMenuItemTimes'][d['absenceMenuItemTimes']]);
@@ -73,7 +77,6 @@ function getSurveyDict(data) {
     
     // dict['submittedOn'].push(moment(d['submittedOn']).tz(TZ).format());
   }
-  console.log(dict);
 
   return dict;
 

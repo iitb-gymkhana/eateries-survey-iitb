@@ -22,7 +22,7 @@ export class SurveyFormComponent implements OnInit {
   otherParameters = otherParameters;
   surveyOptionsMapping = surveyOptionsMappings;
 
-  surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
+  surveyModel = new Survey('', null, '', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
   // surveyModel = new Survey('s@s.com', 'd', 'd', this.foodItems, this.hygieneOfItems, 'd', this.otherParameters, 'd');
 
   submitted = false;
@@ -31,7 +31,7 @@ export class SurveyFormComponent implements OnInit {
   onDataSubmission(res) {
     this.submitting = false;
     this.submitted = true;
-    this.surveyModel = new Survey('', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
+    this.surveyModel = new Survey('', null, '', '', '', this.foodItems, this.hygieneOfItems, '', this.otherParameters, '');
 
   }
   onSubmit() {

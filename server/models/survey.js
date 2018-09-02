@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 var moment = require('moment-timezone');
 
 var surveySchema = new Schema({
+    name: String,
+    phoneNumber: Number,
     email: String,
     hostel: String,
     frequency: String,
