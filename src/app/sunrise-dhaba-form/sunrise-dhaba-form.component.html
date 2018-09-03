@@ -1,0 +1,571 @@
+<div class="container">
+    <mat-progress-bar mode="buffer" [hidden]="!submitting"></mat-progress-bar>
+    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="submitted || submitting">
+      <div class="row">
+        <div class="name col-sm">
+          <mat-form-field class="form-input-full-width">
+            <input matInput placeholder="Name" [(ngModel)]="surveyModel.name" name="name" required>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="phoneNumber col-sm">
+          <mat-form-field class="form-input-full-width">
+            <input matInput placeholder="Phone Number" [(ngModel)]="surveyModel.phoneNumber" name="phoneNumber" required>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="email col-sm">
+          <mat-form-field class="form-input-full-width">
+            <input matInput placeholder="Email" pattern="[^ @]*@[^ @]*" [(ngModel)]="surveyModel.email" name="email" required>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-freq"><strong>How frequently do you visit canteen?</strong></div>
+          <mat-radio-group class="freq-radio-group" [(ngModel)]="surveyModel.frequency" name="frequency" required>
+            <mat-radio-button class="freq-radio-button" *ngFor="let frequency of frequencies" [value]="frequency">
+              {{ surveyOptionsMapping['frequencies'][frequency] }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality breakfast items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of breakfastItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['breakfastItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.breakfastItems[i].rating" name="breakfastItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality appetizers items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of appetizersItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['appetizersItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.appetizersItems[i].rating" name="appetizersItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality biryani veg items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of biryaniVegItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['biryaniVegItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.biryaniVegItems[i].rating" name="biryaniVegItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality biryani non veg items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of biryaniNonVegItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['biryaniNonVegItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.biryaniNonVegItems[i].rating" name="biryaniNonVegItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality tandoor items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tandoorItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['tandoorItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.tandoorItems[i].rating" name="tandoorItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality veg special dishes items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of vegSpecialDishesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['vegSpecialDishesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.vegSpecialDishesItems[i].rating" name="vegSpecialDishesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality paneer special dishes items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of paneerSpecialDishesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['paneerSpecialDishesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.paneerSpecialDishesItems[i].rating" name="paneerSpecialDishesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality chicken special dishes items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of chickenSpecialDishesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['chickenSpecialDishesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.chickenSpecialDishesItems[i].rating" name="chickenSpecialDishesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality fish dishes items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of fishDishesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['fishDishesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.fishDishesItems[i].rating" name="fishDishesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality veg rice and noodles items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of vegRiceAndNoodlesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['vegRiceAndNoodlesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.vegRiceAndNoodlesItems[i].rating" name="vegRiceAndNoodlesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality non veg rice and noodles items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of nonVegRiceAndNoodlesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['nonVegRiceAndNoodlesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.nonVegRiceAndNoodlesItems[i].rating" name="nonVegRiceAndNoodlesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality bread basket items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of breadBasketItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['breadBasketItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.breadBasketItems[i].rating" name="breadBasketItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality beverages and juices items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of beveragesAndJuicesItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['beveragesAndJuicesItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.beveragesAndJuicesItems[i].rating" name="beveragesAndJuicesItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-quality">
+            <strong>Rate the quality dessert items in canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dessertItems; let i = index">
+                  <th scope="row">{{ surveyOptionsMapping['dessertItems'][item.itemId] }}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.dessertItems[i].rating" name="dessertItems{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-hygiene">
+            <strong>Rate on overall Hygiene level maintained in Canteen</strong>
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of hygieneOfItems; let i = index">
+                  <th scope="row">{{surveyOptionsMapping['hygieneOfItems'][item.itemId]}}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.hygieneOfItems[i].level" name="hygieneofitem{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-absence"><strong>How often do you encounter with the absence of menu item or any other item?</strong></div>
+          <mat-radio-group class="absence-radio-group" [(ngModel)]="surveyModel.absenceMenuItemTimes" name="absence" required>
+            <mat-radio-button class="absence-radio-button" *ngFor="let times of absenceMenuItemTimes" [value]="times">
+              {{ surveyOptionsMapping['absenceMenuItemTimes'][times] }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm">
+          <div class="question-other-parameters">
+              <strong>Other Parameters</strong>:
+            <small class="text-muted">
+              <p>5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable</p>
+            </small>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" *ngFor="let rating of ratings">{{surveyOptionsMapping['ratings'][rating]}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parameter of otherParameters; let i = index">
+                  <th scope="row">{{surveyOptionsMapping['otherParameters'][parameter.parameterId]}}</th>
+                  <td *ngFor="let rating of ratings" >
+                    <mat-radio-group [(ngModel)]="surveyModel.otherParameters[i].rating" name="parameter{{i}}" required>
+                      <mat-radio-button [value]="rating"></mat-radio-button>
+                    </mat-radio-group>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm">
+          <div><strong>Other Suggestions/Comments</strong></div>
+          <mat-form-field class="form-input-full-width">
+            <textarea matInput placeholder="Your answer" [(ngModel)]="surveyModel.otherSuggestions" name="suggestion"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm">
+            <button mat-raised-button color="primary" [disabled]="!surveyForm.form.valid">Submit</button>
+        </div>
+      </div>
+  
+    </form>
+  
+    <!-- <pre>{{ diagnostic | json }}</pre> -->
+  
+    <div class="row" [hidden]="!submitted">
+      <div class="col-sm">
+        Thank you for submitting the form
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,36 @@
+.question-freq {
+    margin-bottom: 15px;
+}
+
+.freq-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.question-quality .help-text {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.question-absence {
+    margin-bottom: 15px;
+}
+
+.absence-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+form {
+    width: 100%;
+    min-width: 200px;
+    max-width: 1000px;
+}
+
+.form-input-full-width {
+    width: 100%;
+}
