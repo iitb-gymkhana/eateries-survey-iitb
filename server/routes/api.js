@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Survey = require('../models/survey');
+var SunriseDhabaSurvey = require('../models/sunriseDhabaSurvey');
 var moment = require('moment-timezone');
 var fs = require('fs');
 var path = require('path');
@@ -82,8 +83,19 @@ function getSurveyDict(data) {
 
 }
 
-router.post('/submit', function(req, res, next) {
+router.post('/canteens/submit', function(req, res, next) {
   Survey.create(req.body, function (err, post) {
+    if (err) {
+      res.json({'status': 'failed'})
+      return next(err);
+    } else {
+      res.json({'status': 'successful'});
+    }
+  });
+});
+
+router.post('/sunrisedhaba/submit', function(req, res, next) {
+  SunriseDhabaSurvey.create(req.body, function (err, post) {
     if (err) {
       res.json({'status': 'failed'})
       return next(err);
