@@ -6,9 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { SunriseDhabaFormComponent } from './sunrise-dhaba-form/sunrise-dhaba-form.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'canteens/dashboard', component: DashboardComponent },
   { path: '', component: HomeComponent },
-  { path: 'hostels', component: SurveyFormComponent},
+  { path: 'canteens', component: SurveyFormComponent},
   { path: 'sunrisedhaba', component: SunriseDhabaFormComponent}
 ];
 

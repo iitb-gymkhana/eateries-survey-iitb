@@ -56,10 +56,10 @@ export class SunriseDhabaFormComponent implements OnInit {
   surveyOptionsMapping = surveyOptionsMappings;
 
   surveyModel = new SunriseDhabaSurvey(
-    'd',
-    4,
-    'd@d.com',
-    'd',
+    '',
+    null,
+    '',
+    '',
     this.breakfastItems,
     this.appetizersItems,
     this.biryaniVegItems,
@@ -75,9 +75,9 @@ export class SunriseDhabaFormComponent implements OnInit {
     this.beveragesAndJuicesItems,
     this.dessertItems,
     this.hygieneOfItems,
-    'j',
+    '',
     this.otherParameters,
-    'j'
+    ''
   );
 
   submitted = false;
