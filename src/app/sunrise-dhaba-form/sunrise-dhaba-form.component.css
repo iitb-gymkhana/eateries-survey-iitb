@@ -1,8 +1,8 @@
-.question-freq {
+.radio-group-label {
     margin-bottom: 15px;
 }
 
-.freq-radio-group {
+.radio-group {
     display: inline-flex;
     flex-direction: column;
 }

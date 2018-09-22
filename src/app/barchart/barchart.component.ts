@@ -52,31 +52,31 @@ export class BarchartComponent implements OnInit, AfterViewInit {
     this.chart = new Chart(id, {
       type: 'bar',
       data: {
-          labels: this.data['labels'],
-          datasets: [{
-              label: this.data['title'],
-              data: dataset,
-              borderWidth: 1,
-              backgroundColor: this.backgroundColor[this.index % this.backgroundColor.length],
-              borderColor: this.borderColor[this.index % this.borderColor.length]
-          }]
+        labels: this.data['labels'],
+        datasets: [{
+          label: this.data['title'],
+          data: dataset,
+          borderWidth: 1,
+          backgroundColor: this.backgroundColor[this.index % this.backgroundColor.length],
+          borderColor: this.borderColor[this.index % this.borderColor.length]
+        }]
       },
       options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true,
-                      max: this.numData
-                  }
-              }],
-              xAxes: [{
-                ticks: {
-                  autoSkip: false
-                }
-              }]
-          }
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              max: this.numData
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              autoSkip: false
+            }
+          }]
+        }
       }
-  });
+    });
   }
 
 }

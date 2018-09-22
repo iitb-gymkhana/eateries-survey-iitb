@@ -1,9 +1,9 @@
 export class SunriseDhabaSurvey {
   constructor(
-      public name: String,
-      public phoneNumber: Number,
-      public email: String,
-      public frequency: String,
+      public name: Array<Object>,
+      public phoneNumber: Array<Object>,
+      public email: Array<Object>,
+      public frequency: Array<Object>,
       public breakfastItems: Array<Object>,
       public appetizersItems: Array<Object>,
       public biryaniVegItems: Array<Object>,
@@ -19,8 +19,8 @@ export class SunriseDhabaSurvey {
       public beveragesAndJuicesItems: Array<Object>,
       public dessertItems: Array<Object>,
       public hygieneOfItems: Array<Object>,
-      public absenceMenuItemTimes: String,
+      public absenceMenuItemTimes: Array<Object>,
       public otherParameters: Array<Object>,
-      public otherSuggestions?: String
+      public otherSuggestions?: Array<Object>
   ) { }
 }

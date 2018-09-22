@@ -2,7 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Survey } from '../survey';
-import { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters } from '../survey-variables';
+import {
+  name,
+  phoneNumber,
+  email,
+  ratingOptions,
+  hostel,
+  hostelOptions,
+  frequency,
+  frequencyOptions,
+  foodItems,
+  hygieneOfItems,
+  absenceMenuItemTimes,
+  absenceMenuItemTimesOptions,
+  otherParameters,
+  otherSuggestions
+} from '../survey-variables';
 import { MatSnackBar } from '@angular/material';
 import { surveyOptionsMappings } from '../survey-variables.mapping';
 
@@ -14,9 +29,9 @@ import { surveyOptionsMappings } from '../survey-variables.mapping';
 export class DashboardComponent implements OnInit {
   apiBaseUrl = environment.apiBaseUrl;
 
-  ratings = ratings;
-  hostels = hostels;
-  frequencies = frequencies;
+  ratings = ratingOptions;
+  hostels = hostelOptions;
+  frequencies = frequencyOptions;
   foodItems = foodItems;
   hygieneOfItems = hygieneOfItems;
   absenceMenuItemTimes = absenceMenuItemTimes;
@@ -61,13 +76,13 @@ export class DashboardComponent implements OnInit {
       const title = _data['title'];
 
       if (title === 'hostel') {
-        labels = hostels.map((x) => surveyOptionsMappings['hostels'][x]);
+        labels = this.hostels.map((x) => surveyOptionsMappings['hostels'][x]);
       } else if (title === 'frequency') {
-        labels = frequencies.map((x) => surveyOptionsMappings['frequencies'][x]);
+        labels = this.frequencies.map((x) => surveyOptionsMappings['frequencies'][x]);
       } else if (title === 'absenceMenuItemTimes') {
         labels = absenceMenuItemTimes.map((x) => surveyOptionsMappings['absenceMenuItemTimes'][x]);
       } else {
-        labels = ratings.map((x) => surveyOptionsMappings['ratings'][x]);
+        labels = this.ratings.map((x) => surveyOptionsMappings['ratings'][x]);
       }
       _data['labels'] = labels;
 

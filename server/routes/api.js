@@ -26,59 +26,90 @@ db.on('open', function() {
 });
 
 function getSurveyDict(data) {
-  var i, j;
-
-  var dict = {
-    'name': [],
-    'phoneNumber': [],
-    'email': [],
-    'hostel': [],
-    'frequency': [],
-    'absenceMenuItemTimes': [],
-    // 'otherSuggestions': [],
-    // 'submittedOn': []
+  var mappingFunc = {
+    name: {
+      id: (x) => 'name',
+      value: (x) => x 
+    },
+    phoneNumber: {
+      id: (x) => 'phoneNumber',
+      value: (x) => x 
+    },
+    email: {
+      id: (x) => 'email',
+      value: (x) => x 
+    },
+    hostel: {
+      id: (x) => 'hostel',
+      value: (x) => {
+        return surveyOptionsMapping['hostels'][x]
+      } 
+    },
+    frequency: {
+      id: (x) => 'frequency',
+      value: (x) => {
+        return surveyOptionsMapping['frequencies'][x]
+      }
+    },
+    foodItems: {
+      id: (x) => {
+        return surveyOptionsMapping['foodItems'][x]
+      },
+      value: (x) => {
+        return surveyOptionsMapping['ratings'][x]
+      }
+    },
+    hygieneOfItems: {
+      id: (x) => {
+        return surveyOptionsMapping['hygieneOfItems'][x]
+      },
+      value: (x) => {
+        return surveyOptionsMapping['ratings'][x]
+      }
+    },
+    absenceMenuItemTimes: {
+      id: (x) => 'absenceMenuItemTimes',
+      value: (x) => {
+        return surveyOptionsMapping['absenceMenuItemTimes'][x]
+      }
+    },
+    otherParameters: {
+      id: (x) => {
+        return surveyOptionsMapping['otherParameters'][x]
+      },
+      value: (x) => {
+        return surveyOptionsMapping['ratings'][x]
+      }
+    },
+    otherSuggestions: {
+      id: (x) => 'otherSuggestions',
+      value: (x) => x
+    },
   }
 
-  if (data.length === 0) dict = {};
+  const keys = Object.keys(mappingFunc);
+  var dict = { }
+  var i, j, k
 
   for (i = 0; i < data.length; i++) {
-    var d = data[i];
-    dict['name'].push(d['name']);
-    dict['phoneNumber'].push(d['phoneNumber']);
-    dict['email'].push(d['email']);
-    dict['hostel'].push(surveyOptionsMapping['hostels'][d['hostel']]);
-    dict['frequency'].push(surveyOptionsMapping['frequencies'][d['frequency']]);
-    dict['absenceMenuItemTimes'].push(surveyOptionsMapping['absenceMenuItemTimes'][d['absenceMenuItemTimes']]);
-    // dict['otherSuggestions'].push(d['otherSuggestions']);
+    const d = data[i]
 
-    for (j = 0; j < d['foodItems'].length; j++) {
-      var item = d['foodItems'][j];
+    for (j = 0; j < keys.length; j++) {
+      const key = keys[j]
 
-      var name = surveyOptionsMapping['foodItems'][item.itemId];
-      
-      if (!(name in dict)) dict[name] = [];
-      dict[name].push(surveyOptionsMapping['ratings'][item.rating]);
+      for (k = 0; k < d[key].length; k++) {
+        const id = d[key][k]['id']
+        const value = d[key][k]['value']
+
+        const _key = mappingFunc[key].id(id) 
+        if (!(_key in dict)) {
+          dict[_key] = []
+        }
+        dict[_key].push(mappingFunc[key].value(value))
+      }  
     }
-
-    for (j = 0; j < d['hygieneOfItems'].length; j++) {
-      var item = d['hygieneOfItems'][j];
-      var name = surveyOptionsMapping['hygieneOfItems'][item.itemId];
-
-      if (!(name in dict)) dict[name] = [];
-      dict[name].push(surveyOptionsMapping['ratings'][item.level]);
-    }
-
-    for (j = 0; j < d['otherParameters'].length; j++) {
-      var p = d['otherParameters'][j];
-      var parameter = surveyOptionsMapping['otherParameters'][p.parameterId]
-
-      if (!(parameter in dict)) dict[parameter] = [];
-      dict[parameter].push(surveyOptionsMapping['ratings'][p.rating]);
-    }
-    
-    // dict['submittedOn'].push(moment(d['submittedOn']).tz(TZ).format());
   }
-
+  
   return dict;
 
 }
@@ -86,7 +117,7 @@ function getSurveyDict(data) {
 router.post('/canteens/submit', function(req, res, next) {
   Survey.create(req.body, function (err, post) {
     if (err) {
-      res.json({'status': 'failed'})
+      // res.json({'status': 'failed'})
       return next(err);
     } else {
       res.json({'status': 'successful'});
@@ -106,7 +137,7 @@ router.post('/sunrisedhaba/submit', function(req, res, next) {
 });
 
 router.get('/hostel/:number', function(req, res, next) {
-  Survey.find({'hostel': req.params.number}, '-_id', function(err, data) {
+  Survey.find({'hostel.value': req.params.number}, '-_id', function(err, data) {
     if (err) next(err);
     res.json(getSurveyDict(data));
   });

@@ -6,55 +6,95 @@ function assertEqualLength(arr, option) {
     }
 }
 
-const ratings = [0, 1, 2, 3, 4, 5];
-assertEqualLength(ratings, 'ratings');
+const name = [
+    { id: 0, value: '' }
+];
 
-const hostels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-assertEqualLength(hostels, 'hostels');
+const email = [
+    { id: 0, value: '' }
+];
 
-const frequencies = [0, 1, 2, 3];
-assertEqualLength(frequencies, 'frequencies');
+const ratingOptions = [0, 1, 2, 3, 4, 5];
+assertEqualLength(ratingOptions, 'ratings');
 
-const noIdeaRating = ratings.length - 1;
+const hostel = [
+    { id: 0, value: '' }
+];
+const hostelOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+assertEqualLength(hostelOptions, 'hostels');
+
+const phoneNumber = [
+    { id: 0, value: '' }
+];
+
+const frequency = [
+    { id: 0, value: '' }
+];
+const frequencyOptions = [0, 1, 2, 3];
+// assertEqualLength(frequencies, 'frequencies');
+
+const noIdeaRating = ratingOptions.length - 1;
 const foodItems = [
-    {itemId: 0, rating: noIdeaRating},
-    {itemId: 1, rating: noIdeaRating},
-    {itemId: 2, rating: noIdeaRating},
-    {itemId: 3, rating: noIdeaRating},
-    {itemId: 4, rating: noIdeaRating},
-    {itemId: 5, rating: noIdeaRating},
-    {itemId: 6, rating: noIdeaRating},
-    {itemId: 7, rating: noIdeaRating},
-    {itemId: 8, rating: noIdeaRating},
-    {itemId: 9, rating: noIdeaRating},
-    {itemId: 10, rating: noIdeaRating},
-    {itemId: 11, rating: noIdeaRating},
-    {itemId: 12, rating: noIdeaRating},
-    {itemId: 13, rating: noIdeaRating},
-    {itemId: 14, rating: noIdeaRating},
-    {itemId: 15, rating: noIdeaRating},
-    {itemId: 16, rating: noIdeaRating},
-    {itemId: 17, rating: noIdeaRating},
-    {itemId: 18, rating: noIdeaRating}
+    { id: 0, value: noIdeaRating },
+    { id: 1, value: noIdeaRating },
+    { id: 2, value: noIdeaRating },
+    { id: 3, value: noIdeaRating },
+    { id: 4, value: noIdeaRating },
+    { id: 5, value: noIdeaRating },
+    { id: 6, value: noIdeaRating },
+    { id: 7, value: noIdeaRating },
+    { id: 8, value: noIdeaRating },
+    { id: 9, value: noIdeaRating },
+    { id: 10, value: noIdeaRating },
+    { id: 11, value: noIdeaRating },
+    { id: 12, value: noIdeaRating },
+    { id: 13, value: noIdeaRating },
+    { id: 14, value: noIdeaRating },
+    { id: 15, value: noIdeaRating },
+    { id: 16, value: noIdeaRating },
+    { id: 17, value: noIdeaRating },
+    { id: 18, value: noIdeaRating }
 ];
 assertEqualLength(foodItems, 'foodItems');
 
 const hygieneOfItems = [
-    {itemId: 0, level: noIdeaRating},
-    {itemId: 1, level: noIdeaRating},
-    {itemId: 2, level: noIdeaRating},
-    {itemId: 3, level: noIdeaRating}
+    { id: 0, value: noIdeaRating },
+    { id: 1, value: noIdeaRating },
+    { id: 2, value: noIdeaRating },
+    { id: 3, value: noIdeaRating }
 ];
 assertEqualLength(hygieneOfItems, 'hygieneOfItems');
 
-const absenceMenuItemTimes = [0, 1, 2];
-assertEqualLength(absenceMenuItemTimes, 'absenceMenuItemTimes');
+const absenceMenuItemTimes = [
+    { id: 0, value: '' }
+];
+const absenceMenuItemTimesOptions = [0, 1, 2];
+assertEqualLength(absenceMenuItemTimesOptions, 'absenceMenuItemTimes');
 
 const otherParameters = [
-    {parameterId: 0, rating: noIdeaRating},
-    {parameterId: 1, rating: noIdeaRating},
-    {parameterId: 2, rating: noIdeaRating}
+    { id: 0, value: noIdeaRating },
+    { id: 1, value: noIdeaRating },
+    { id: 2, value: noIdeaRating }
 ];
 assertEqualLength(otherParameters, 'otherParameters');
 
-export { ratings, hostels, frequencies, foodItems, hygieneOfItems, absenceMenuItemTimes, otherParameters };
+const otherSuggestions = [
+    { id: 0, value: '' }
+];
+
+export {
+    name,
+    phoneNumber,
+    email,
+    ratingOptions,
+    hostel,
+    hostelOptions,
+    frequency,
+    frequencyOptions,
+    foodItems,
+    hygieneOfItems,
+    absenceMenuItemTimes,
+    absenceMenuItemTimesOptions,
+    otherParameters,
+    otherSuggestions
+};

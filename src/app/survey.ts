@@ -1,14 +1,14 @@
 export class Survey {
     constructor(
-        public name: String,
-        public phoneNumber: Number,
-        public email: String,
-        public hostel: String,
-        public frequency: String,
+        public name: Array<Object>,
+        public phoneNumber: Array<Object>,
+        public email: Array<Object>,
+        public hostel: Array<Object>,
+        public frequency: Array<Object>,
         public foodItems: Array<Object>,
         public hygieneOfItems: Array<Object>,
-        public absenceMenuItemTimes: String,
+        public absenceMenuItemTimes: Array<Object>,
         public otherParameters: Array<Object>,
-        public otherSuggestions?: String
+        public otherSuggestions: Array<Object>
     ) { }
 }
