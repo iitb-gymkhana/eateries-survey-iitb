@@ -1,6 +1,6 @@
 <div class="container">
-  <mat-progress-bar mode="buffer" [hidden]="!submitting"></mat-progress-bar>
-  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="submitted || submitting">
+  <mat-progress-bar mode="buffer" [hidden]="!formSubmitting"></mat-progress-bar>
+  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="formSubmitted || formSubmitting">
 
     <div class="row" *ngFor="let formControl of form">
       <div class="col-sm">
@@ -91,7 +91,7 @@
 
   <!-- <pre>{{ diagnostic | json }}</pre> -->
 
-  <div class="row" [hidden]="!submitted">
+  <div class="row" [hidden]="!formSubmitted">
     <div class="col-sm">
       Thank you for submitting the form
     </div>

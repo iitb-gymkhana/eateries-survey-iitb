@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment';
 import {
   name,
   email,
@@ -26,20 +25,21 @@ import {
   absenceMenuItemTimesOptions,
   otherParameters,
   otherSuggestions
-} from './sunrise-dhaba-survey-variables';
+} from './variables/variables';
+import { surveyOptionsMappings } from './variables/mapping';
+import { AromasSurveyModel } from './model/model';
 
-import { SunriseDhabaSurvey } from './model/sunrise-dhaba';
-
-import { surveyOptionsMappings } from './sunrise-dhaba-survey-variables.mapping';
-import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-sunrise-dhaba-form',
-  templateUrl: './sunrise-dhaba-form.component.html',
-  styleUrls: ['./sunrise-dhaba-form.component.css']
+  selector: 'app-aromas-form',
+  templateUrl: './aromas-form.component.html',
+  styleUrls: ['./aromas-form.component.css']
 })
-export class SunriseDhabaFormComponent implements OnInit {
+export class AromasFormComponent implements OnInit {
   apiBaseUrl = environment.apiBaseUrl;
+  apiUrl = `${this.apiBaseUrl}/sunrisedhaba/submit`;
+
   name = name;
   email = email;
   ratingOptions = ratingOptions;
@@ -67,7 +67,7 @@ export class SunriseDhabaFormComponent implements OnInit {
   otherSuggestions = otherSuggestions;
   surveyOptionsMapping = surveyOptionsMappings;
 
-  surveyModel = new SunriseDhabaSurvey(
+  surveyModel = new AromasSurveyModel (
     this.name,
     this.phoneNumber,
     this.email,
@@ -91,9 +91,6 @@ export class SunriseDhabaFormComponent implements OnInit {
     this.otherParameters,
     this.otherSuggestions
   );
-
-  submitted = false;
-  submitting = false;
 
   form = [
     {
@@ -315,10 +312,8 @@ export class SunriseDhabaFormComponent implements OnInit {
     }
   ];
 
-  onDataSubmission(res) {
-    this.submitting = false;
-    this.submitted = true;
-    this.surveyModel = new SunriseDhabaSurvey(
+  onSubmission() {
+    this.surveyModel = new AromasSurveyModel (
       this.name,
       this.phoneNumber,
       this.email,
@@ -343,16 +338,8 @@ export class SunriseDhabaFormComponent implements OnInit {
       this.otherSuggestions
     );
   }
-  onSubmit() {
-    this.submitting = true;
-    this.http.post<SunriseDhabaSurvey>(`${this.apiBaseUrl}/sunrisedhaba/submit`, this.surveyModel)
-      .subscribe((res) => this.onDataSubmission(res));
-  }
 
-  // TODO: Remove this after debugging
-  get diagnostic() { return this.surveyModel; }
-
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
   }

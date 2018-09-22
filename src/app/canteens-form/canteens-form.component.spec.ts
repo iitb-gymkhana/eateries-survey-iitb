@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SunriseDhabaFormComponent } from './sunrise-dhaba-form.component';
+import { CanteensFormComponent } from './canteens-form.component';
 
-describe('SunriseDhabaFormComponent', () => {
-  let component: SunriseDhabaFormComponent;
-  let fixture: ComponentFixture<SunriseDhabaFormComponent>;
+describe('CanteensFormComponent', () => {
+  let component: CanteensFormComponent;
+  let fixture: ComponentFixture<CanteensFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SunriseDhabaFormComponent ]
+      declarations: [ CanteensFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SunriseDhabaFormComponent);
+    fixture = TestBed.createComponent(CanteensFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

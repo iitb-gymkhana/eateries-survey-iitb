@@ -1,4 +1,4 @@
-import { surveyOptionsMappings } from './sunrise-dhaba-survey-variables.mapping';
+import { surveyOptionsMappings } from './mapping';
 
 function assertEqualLength(arr, option) {
   if (arr.length !== Object.keys(surveyOptionsMappings[option]).length) {

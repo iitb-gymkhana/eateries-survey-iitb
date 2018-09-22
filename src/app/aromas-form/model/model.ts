@@ -1,4 +1,4 @@
-export class SunriseDhabaSurvey {
+export class AromasSurveyModel {
   constructor(
       public name: Array<Object>,
       public phoneNumber: Array<Object>,

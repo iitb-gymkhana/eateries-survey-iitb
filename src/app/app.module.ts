@@ -19,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BarchartComponent } from './barchart/barchart.component';
 import { HomeComponent } from './home/home.component';
-import { SunriseDhabaFormComponent } from './sunrise-dhaba-form/sunrise-dhaba-form.component';
+import { AromasFormComponent } from './aromas-form/aromas-form.component';
+import { CanteensFormComponent } from './canteens-form/canteens-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SunriseDhabaFormComponent } from './sunrise-dhaba-form/sunrise-dhaba-fo
     DashboardComponent,
     BarchartComponent,
     HomeComponent,
-    SunriseDhabaFormComponent
+    AromasFormComponent,
+    CanteensFormComponent
   ],
   imports: [
     BrowserModule,
