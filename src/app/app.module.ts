@@ -43,7 +43,7 @@ import { CanteensFormComponent } from './canteens-form/canteens-form.component';
     MatSelectModule,
     MatRadioModule,
     HttpClientModule,
-    MatToolbarModule,
+    MatToolbarModule, 
     MatProgressBarModule,
     AppRoutingModule,
     MatSnackBarModule

@@ -26,7 +26,7 @@ import { CanteensSurveyModel } from './model/model';
 })
 export class CanteensFormComponent implements OnInit {
   apiBaseUrl = environment.apiBaseUrl;
-  apiUrl = `${this.apiBaseUrl}/canteens/submit`;
+  apiUrl = `${this.apiBaseUrl}/canteens`;
 
   name = name;
   phoneNumber = phoneNumber;

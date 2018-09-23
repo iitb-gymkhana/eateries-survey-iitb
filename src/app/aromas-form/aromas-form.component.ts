@@ -38,7 +38,7 @@ import { environment } from '../../environments/environment';
 })
 export class AromasFormComponent implements OnInit {
   apiBaseUrl = environment.apiBaseUrl;
-  apiUrl = `${this.apiBaseUrl}/sunrisedhaba/submit`;
+  apiUrl = `${this.apiBaseUrl}/aromas`;
 
   name = name;
   email = email;

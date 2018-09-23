@@ -9,6 +9,6 @@ export class CanteensSurveyModel {
       public hygieneOfItems: Array<Object>,
       public absenceMenuItemTimes: Array<Object>,
       public otherParameters: Array<Object>,
-      public otherSuggestions: Array<Object>
+      public otherSuggestions?: Array<Object>
   ) { }
 }
