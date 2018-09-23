@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var moment = require('moment-timezone');
 
-var surveySchema = new Schema({
+var canteensSurveySchema = new Schema({
     name: [{id: Number, value: String}],
     phoneNumber: [{id: Number, value: Number}],
     email: [{id: Number, value: String}],
@@ -13,12 +13,12 @@ var surveySchema = new Schema({
     absenceMenuItemTimes: [{id: Number, value: Number}],
     otherParameters: [{id: Number, value: Number}],
     otherSuggestions: [{id: Number, value: String}],
-    submittedOn: Date
+    submittedOn: [{id: Number, value: Date}]
 });
 
-surveySchema.pre('save', function(next) {
-    this.submittedOn = moment(new Date());
-    next();
+canteensSurveySchema.pre('save', function(next) {
+    this.submittedOn = [{id: 0, value: moment()}]
+    next()
 });
 
-module.exports = mongoose.model('Survey', surveySchema);
+module.exports = mongoose.model('CanteensSurvey', canteensSurveySchema);
