@@ -6,7 +6,7 @@ module.exports = {
   apps : [
     {
       name      : 'eateries-survey-api',
-      script    : './bin/www',
+      script    : 'app.js',
       env: {
         COMMON_VARIABLE: 'true'
       },

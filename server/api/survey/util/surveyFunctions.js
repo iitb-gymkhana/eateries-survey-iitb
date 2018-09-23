@@ -278,9 +278,21 @@ async function getCsvData(dict) {
   return csvData
 }
 
+function getFreq(data) {
+  const dict = {}
+
+  for (let i = 0; i < data.length; i++) {
+    const val = dict[data[i]]
+    dict[data[i]] = val ? val + 1 : 1
+  }
+
+  return dict
+}
+
 module.exports = {
   getSurveyDict: getSurveyDict,
   getCsvData: getCsvData,
   canteensMappingFunc: canteensMappingFunc,
-  aromasMappingFunc: aromasMappingFunc
+  aromasMappingFunc: aromasMappingFunc,
+  getFreq: getFreq
 }

@@ -1,9 +1,7 @@
 const AromasSurvey = require('../model/aromasSurveySchema')
 const getSurveyDict = require('../util/surveyFunctions').getSurveyDict
-const getCsvData = require('../util/surveyFunctions').getCsvData
 const aromasMappingFunc = require('../util/surveyFunctions').aromasMappingFunc
-const moment = require('moment-timezone')
-var fs = require('fs')
+const getFreq = require('../util/surveyFunctions').getFreq
 
 module.exports = {
   method: 'GET',
@@ -11,8 +9,13 @@ module.exports = {
   options: {
     handler: async (request, h) => {
       const data = await AromasSurvey.find()
-      
+
       const dict = await getSurveyDict(data, aromasMappingFunc)
+
+      const fields = Object.keys(dict)
+      for (let i = 0; i < fields.length; i++) {
+        dict[fields[i]] = getFreq(dict[fields[i]])
+      }
       
       return dict
     }

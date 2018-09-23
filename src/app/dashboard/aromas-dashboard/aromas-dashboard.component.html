@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm download-csv-button">
+        <a href="{{apiBaseUrl}}/aromas/csv">
+          <button mat-raised-button>
+            Download CSV
+          </button>      
+        </a>
+      </div>
+    </div>
+  
+    <mat-progress-bar mode="buffer" [hidden]="!fetchingData"></mat-progress-bar>
+  
+    <app-chart *ngIf="surveyData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
+  </div>

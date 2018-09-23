@@ -1,9 +1,7 @@
 const CanteensSurvey = require('../model/canteensSurveySchema')
 const getSurveyDict = require('../util/surveyFunctions').getSurveyDict
-const getCsvData = require('../util/surveyFunctions').getCsvData
 const canteensMappingFunc = require('../util/surveyFunctions').canteensMappingFunc
-const moment = require('moment-timezone')
-var fs = require('fs')
+const getFreq = require('../util/surveyFunctions').getFreq
 
 module.exports = {
   method: 'GET',
@@ -13,6 +11,11 @@ module.exports = {
       const data = await CanteensSurvey.find({ 'hostel.value': request.params.hostel })
 
       const dict = await getSurveyDict(data, canteensMappingFunc)
+      
+      const fields = Object.keys(dict)
+      for (let i = 0; i < fields.length; i++) {
+        dict[fields[i]] = getFreq(dict[fields[i]])
+      }
       
       return dict
     }

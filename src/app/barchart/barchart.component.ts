@@ -7,7 +7,7 @@ import { Chart } from 'chart.js';
   styleUrls: ['./barchart.component.css']
 })
 export class BarchartComponent implements OnInit, AfterViewInit {
-  @Input() data: Object;
+  @Input() barChartData: Object;
   @Input() canvasId: string;
   @Input() numData: number;
   @Input() index: number;
@@ -42,20 +42,13 @@ export class BarchartComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const id = document.getElementById(this.canvasId);
 
-    const dataset = [];
-    let i;
-    for (i = 0; i < this.data['labels'].length; i++) {
-      const j = this.data['dataset'][this.data['labels'][i]];
-      j ? dataset.push(j) : dataset.push(0);
-    }
-
     this.chart = new Chart(id, {
       type: 'bar',
       data: {
-        labels: this.data['labels'],
+        labels: this.barChartData['labels'],
         datasets: [{
-          label: this.data['title'],
-          data: dataset,
+          label: this.barChartData['title'],
+          data: this.barChartData['data'],
           borderWidth: 1,
           backgroundColor: this.backgroundColor[this.index % this.backgroundColor.length],
           borderColor: this.borderColor[this.index % this.borderColor.length]

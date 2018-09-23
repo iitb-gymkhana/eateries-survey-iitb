@@ -1,0 +1,10 @@
+<div class="row charts">
+    <div class="col" *ngFor="let data of chartData; let i = index">
+      <app-barchart 
+        [barChartData]="data"
+        [canvasId]="'canvas'+i"
+        [numData]="numData"
+        [index]="i">
+      </app-barchart>
+    </div>      
+  </div>

@@ -21,6 +21,9 @@ import { BarchartComponent } from './barchart/barchart.component';
 import { HomeComponent } from './home/home.component';
 import { AromasFormComponent } from './aromas-form/aromas-form.component';
 import { CanteensFormComponent } from './canteens-form/canteens-form.component';
+import { CanteensDashboardComponent } from './dashboard/canteens-dashboard/canteens-dashboard.component';
+import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-dashboard.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CanteensFormComponent } from './canteens-form/canteens-form.component';
     BarchartComponent,
     HomeComponent,
     AromasFormComponent,
-    CanteensFormComponent
+    CanteensFormComponent,
+    CanteensDashboardComponent,
+    AromasDashboardComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
