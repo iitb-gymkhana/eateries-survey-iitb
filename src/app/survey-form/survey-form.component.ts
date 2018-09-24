@@ -21,6 +21,7 @@ export class SurveyFormComponent implements OnInit {
     this.formSubmitting = false;
     this.formSubmitted = true;
     this.submitted.emit(true);
+    window.scrollTo(0, 0);
   }
 
   onSubmit() {

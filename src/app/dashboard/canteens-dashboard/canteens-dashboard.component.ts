@@ -27,6 +27,11 @@ export class CanteensDashboardComponent implements OnInit {
     this.surveyService.getHostelData(hostel)
       .subscribe(
         (res) => {
+          delete res['name'];
+          delete res['phoneNumber'];
+          delete res['email'];
+          delete res['submittedOn'];
+          delete res['otherSuggestions'];
           this.surveyData = res;
           this.fetchingData = false;
           this.gotData = true;

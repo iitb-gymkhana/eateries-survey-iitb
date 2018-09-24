@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-chart',
@@ -14,14 +13,13 @@ export class ChartComponent implements OnInit {
   chartData = [];
 
   constructor(
-    public snackbar: MatSnackBar,
   ) { }
 
   ngOnInit() {
     const fields = Object.keys(this.surveyData);
 
     if (fields.length !== 0) {
-      const _values = Object.values(this.surveyData['frequency']);
+      const _values = Object.values(this.surveyData[fields[0]]);
       for (let i = 0; i < _values.length; i++) {
         this.numData = +(_values[i]);
       }
