@@ -1,6 +1,9 @@
 <section class="section">
   <div class="container">
-    <!-- <mat-progress-bar mode="buffer" [hidden]="!formSubmitting"></mat-progress-bar> -->
+    <div class="pageloader" [ngClass]="{'is-active': formSubmitting}">
+      <span class="title">Submitting...</span>
+    </div>
+
     <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="formSubmitted || formSubmitting">
 
       <div class="columns" *ngFor="let formControl of form">
@@ -94,8 +97,8 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm">
+      <div class="columns">
+        <div class="column">
           <button class="button is-primary" [disabled]="!surveyForm.form.valid">Submit</button>
         </div>
       </div>
@@ -103,10 +106,26 @@
     </form>
 
     <!-- <pre>{{ diagnostic | json }}</pre> -->
+    <div [hidden]="!formSubmitted">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="check_mark">
+            <div class="sa-icon sa-success animate">
+              <span class="sa-line sa-tip animateSuccessTip"></span>
+              <span class="sa-line sa-long animateSuccessLong"></span>
+              <div class="sa-placeholder"></div>
+              <div class="sa-fix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="row" [hidden]="!formSubmitted">
-      <div class="col-sm">
-        Thank you for submitting the form
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="notification is-primary">
+            Thank you for submitting the feedback
+          </div>
+        </div>
       </div>
     </div>
   </div>

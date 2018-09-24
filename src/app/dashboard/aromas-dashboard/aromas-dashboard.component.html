@@ -6,11 +6,16 @@
       <div class="column is-6">
         <div class="field">
           <div class="control">
-            <a class="button is-primary" href="{{apiBaseUrl}}/aroms/csv">Download CSV</a>
+            <a class="button is-primary" href="{{apiBaseUrl}}/aromas/csv">Download CSV</a>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="pageloader" [ngClass]="{'is-active': fetchingData}">
+      <span class="title">Fetching data...</span>
+    </div>
+
 
     <app-chart *ngIf="gotData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
 

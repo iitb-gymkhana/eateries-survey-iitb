@@ -28,6 +28,10 @@
       </div>
     </div>
 
+    <div class="pageloader" [ngClass]="{'is-active': fetchingData}">
+      <span class="title">Fetching data...</span>
+    </div>
+
     <app-chart *ngIf="gotData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
 
   </div>

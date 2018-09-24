@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { surveyOptionsMappings } from '../../aromas-form/variables/mapping';
 import { SurveyService } from 'src/app/_services/survey.service';
 import { MatSnackBar } from '@angular/material';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-aromas-dashboard',
@@ -18,13 +19,12 @@ export class AromasDashboardComponent implements OnInit {
 
   constructor(
     private surveyService: SurveyService,
-    public snackbar: MatSnackBar
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
     this.gotData = false;
     this.fetchingData = true;
-    const _ = this.snackbar.dismiss();
     // this.surveyData = [];
 
     this.surveyService.getAromasData()
@@ -33,6 +33,13 @@ export class AromasDashboardComponent implements OnInit {
           this.surveyData = res;
           this.fetchingData = false;
           this.gotData = true;
+          if (Object.keys(this.surveyData).length === 0) {
+            this.alertService.displayErrorNotification(`No data available`);
+          }
+        },
+        (err) => {
+          this.fetchingData = false;
+          this.alertService.displayErrorNotification('Failed to get data');
         }
       );
   }

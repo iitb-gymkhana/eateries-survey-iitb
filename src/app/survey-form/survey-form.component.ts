@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Survey } from '../survey';
 import { HttpClient } from '@angular/common/http';
+import { AlertService } from '../_services/alert.service';
 
 @Component({
   selector: 'app-survey-form',
@@ -13,27 +14,34 @@ export class SurveyFormComponent implements OnInit {
   @Input() surveyModel: any;
   @Output() submitted = new EventEmitter<boolean>();
 
-  formSubmitted = false;
   formSubmitting = false;
+  formSubmitted = false;
 
   onDataSubmission(res) {
     this.formSubmitting = false;
     this.formSubmitted = true;
     this.submitted.emit(true);
-
   }
+
   onSubmit() {
     this.formSubmitting = true;
+    this.formSubmitted = false;
     this.http.post<Survey>(this.apiUrl, this.surveyModel)
       .subscribe(
         (res) => this.onDataSubmission(res),
-        (err) => console.log('failed'));
+        (err) => {
+          this.alertService.displayErrorNotification('Failed to submit survey');
+          this.formSubmitting = false;
+        });
   }
 
   // TODO: Remove this after debugging
   get diagnostic() { return this.surveyModel; }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
   }

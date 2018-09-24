@@ -19,9 +19,8 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     const fields = Object.keys(this.surveyData);
-    console.log(fields);
+
     if (fields.length !== 0) {
-      console.log('here');
       const _values = Object.values(this.surveyData['frequency']);
       for (let i = 0; i < _values.length; i++) {
         this.numData = +(_values[i]);
