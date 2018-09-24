@@ -14,7 +14,7 @@
                 <label class="label">{{formControl.label}}</label>
                 <div class="control">
                   <input class="input" placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                    [required]="false" pattern="{{formControl.pattern}}">
+                    [required]="formControl.required" pattern="{{formControl.pattern}}">
                 </div>
               </div>
             </ng-container>
@@ -26,7 +26,7 @@
                 <label class="label">{{formControl.label}}</label>
                 <div class="control">
                   <div class="select is-focused">
-                    <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="false">
+                    <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
                       <option value="" disabled selected>{{formControl.label}}</option>
                       <option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
                         {{ option }}
@@ -45,7 +45,7 @@
                 <div class="control radio-group">
                   <ng-container *ngFor="let option of formControl.options; let i = index;">
                     <input class="is-checkradio" id="{{formControl.model}}{{i}}" type="radio" value="{{formControl.values[i]}}"
-                      [(ngModel)]="model.value" name="{{formControl.model}}" [required]="false">
+                      [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
                     <label for="{{formControl.model}}{{i}}">{{option}}</label>
                   </ng-container>
                 </div>
@@ -73,7 +73,7 @@
                         <th scope="row">{{ rowLabel }}</th>
                         <td *ngFor="let colValue of formControl.columnValues">
                           <input class="is-checkradio" type="radio" [(ngModel)]="surveyModel[formControl.model][i].value"
-                            name="{{formControl.model}}{{i}}" [required]="false" value="{{colValue}}" id="{{formControl.model}}{{i}}{{colValue}}">
+                            name="{{formControl.model}}{{i}}" [required]="formControl.required" value="{{colValue}}" id="{{formControl.model}}{{i}}{{colValue}}">
                           <label for="{{formControl.model}}{{i}}{{colValue}}"></label>
                         </td>
                       </tr>
@@ -89,7 +89,7 @@
               <div class="field">
                 <label class="label">{{formControl.label}}</label>
                 <textarea class="textarea" placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                  [required]="false"></textarea>
+                  [required]="formControl.required"></textarea>
               </div>
             </ng-container>
           </ng-container>
