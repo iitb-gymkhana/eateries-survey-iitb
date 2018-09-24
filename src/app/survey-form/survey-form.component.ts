@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Survey } from '../survey';
 import { HttpClient } from '@angular/common/http';
 import { AlertService } from '../_services/alert.service';
 
@@ -27,7 +26,7 @@ export class SurveyFormComponent implements OnInit {
   onSubmit() {
     this.formSubmitting = true;
     this.formSubmitted = false;
-    this.http.post<Survey>(this.apiUrl, this.surveyModel)
+    this.http.post(this.apiUrl, this.surveyModel)
       .subscribe(
         (res) => this.onDataSubmission(res),
         (err) => {

@@ -1,0 +1,23 @@
+<app-banner title="Dashboard" subtitle="Brew & Bites Data Visualization"></app-banner>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-6">
+        <div class="field">
+          <div class="control">
+            <a class="button is-primary" href="{{apiBaseUrl}}/brewandbites/csv">Download CSV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pageloader" [ngClass]="{'is-active': fetchingData}">
+      <span class="title">Fetching data...</span>
+    </div>
+
+
+    <app-chart *ngIf="gotData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
+
+  </div>
+</section>

@@ -90,7 +90,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'radio-group',
       model: 'frequency',
-      label: 'How frequently do you visit canteen?',
+      label: 'How frequently do you visit Aromas?',
       options: frequencyOptions.map(x => this.surveyOptionsMapping['frequencies'][x]),
       values: frequencyOptions,
       required: true
@@ -98,7 +98,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'breakfastItems',
-      label: 'Rate the quality breakfast items in canteen',
+      label: 'Rate the quality breakfast items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -109,7 +109,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'appetizersItems',
-      label: 'Rate the quality appetizers items in canteen',
+      label: 'Rate the quality appetizers items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -120,7 +120,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'biryaniVegItems',
-      label: 'Rate the quality biryani veg items in canteen',
+      label: 'Rate the quality biryani veg items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -131,7 +131,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'biryaniNonVegItems',
-      label: 'Rate the quality biryani non veg items in canteen',
+      label: 'Rate the quality biryani non veg items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -142,7 +142,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'tandoorItems',
-      label: 'Rate the quality tandoor items in canteen',
+      label: 'Rate the quality tandoor items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -153,7 +153,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'vegSpecialDishesItems',
-      label: 'Rate the quality veg special dishes items in canteen',
+      label: 'Rate the quality veg special dishes items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -164,7 +164,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'paneerSpecialDishesItems',
-      label: 'Rate the quality paneer special dishes items in canteen',
+      label: 'Rate the quality paneer special dishes items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -175,7 +175,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'chickenSpecialDishesItems',
-      label: 'Rate the quality chicken special dishes items in canteen',
+      label: 'Rate the quality chicken special dishes items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -186,7 +186,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'fishDishesItems',
-      label: 'Rate the quality fish dishes items in canteen',
+      label: 'Rate the quality fish dishes items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -197,7 +197,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'vegRiceAndNoodlesItems',
-      label: 'Rate the quality veg rice and noodles items in canteen',
+      label: 'Rate the quality veg rice and noodles items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -208,7 +208,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'nonVegRiceAndNoodlesItems',
-      label: 'Rate the quality non veg rice and noodles items in canteen',
+      label: 'Rate the quality non veg rice and noodles items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -219,7 +219,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'breadBasketItems',
-      label: 'Rate the quality bread breakfast items in canteen',
+      label: 'Rate the quality bread breakfast items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -230,7 +230,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'beveragesAndJuicesItems',
-      label: 'Rate the quality beverages and juices items in canteen',
+      label: 'Rate the quality beverages and juices items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -241,7 +241,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'dessertItems',
-      label: 'Rate the quality dessert items in canteen',
+      label: 'Rate the quality dessert items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -252,7 +252,7 @@ export class AromasFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'hygieneOfItems',
-      label: 'Rate on overall Hygiene level maintained in Canteen',
+      label: 'Rate on overall Hygiene level maintained in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,

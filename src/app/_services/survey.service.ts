@@ -26,6 +26,12 @@ export class SurveyService {
       `${this.apiBaseUrl}/aromas`
     );
   }
+  
+  getBrewandbitesData(): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/brewandbites`
+    );
+  }
 
   saveCanteensData(data): Observable<any> {
     return this.http.post(

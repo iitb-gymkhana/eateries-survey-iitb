@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-barchart',
@@ -12,7 +13,7 @@ export class BarchartComponent implements OnInit, AfterViewInit {
   @Input() numData: number;
   @Input() index: number;
 
-  chart = [];
+  chart: Subject<any> = new BehaviorSubject('loading');
 
   backgroundColor = [
     'rgba(255, 99, 132, 0.2)',
@@ -42,7 +43,7 @@ export class BarchartComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const id = document.getElementById(this.canvasId);
 
-    this.chart = new Chart(id, {
+    const _chart = new Chart(id, {
       type: 'bar',
       data: {
         labels: this.barChartData['labels'],
@@ -70,6 +71,8 @@ export class BarchartComponent implements OnInit, AfterViewInit {
         }
       }
     });
+
+    this.chart.next(_chart);
   }
 
 }

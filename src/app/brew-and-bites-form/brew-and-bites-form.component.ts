@@ -107,7 +107,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'radio-group',
       model: 'frequency',
-      label: 'How frequently do you visit canteen?',
+      label: 'How frequently do you visit B&B?',
       options: frequencyOptions.map(x => this.surveyOptionsMapping['frequencies'][x]),
       values: frequencyOptions,
       required: true
@@ -236,7 +236,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'pastas',
-      label: 'Rate the quality Pastas in canteen',
+      label: 'Rate the quality Pastas in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,

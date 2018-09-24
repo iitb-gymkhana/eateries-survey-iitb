@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { surveyOptionsMappings } from '../../aromas-form/variables/mapping';
+import { surveyOptionsMappings } from '../../brew-and-bites-form/variables/mapping';
 import { SurveyService } from 'src/app/_services/survey.service';
 import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
-  selector: 'app-aromas-dashboard',
-  templateUrl: './aromas-dashboard.component.html',
-  styleUrls: ['./aromas-dashboard.component.css']
+  selector: 'app-brewandbites-dashboard',
+  templateUrl: './brewandbites-dashboard.component.html',
+  styleUrls: ['./brewandbites-dashboard.component.css']
 })
-export class AromasDashboardComponent implements OnInit {
+export class BrewandbitesDashboardComponent implements OnInit {
   apiBaseUrl = environment.apiBaseUrl;
   surveyOptionsMappings = surveyOptionsMappings;
   surveyData: any;
@@ -26,7 +26,7 @@ export class AromasDashboardComponent implements OnInit {
     this.fetchingData = true;
     // this.surveyData = [];
 
-    this.surveyService.getAromasData()
+    this.surveyService.getBrewandbitesData()
       .subscribe(
         (res) => {
           delete res['name'];

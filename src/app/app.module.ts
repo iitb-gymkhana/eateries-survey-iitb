@@ -26,6 +26,7 @@ import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-da
 import { ChartComponent } from './chart/chart.component';
 import { BannerComponent } from './banner/banner.component';
 import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-form.component';
+import { BrewandbitesDashboardComponent } from './dashboard/brewandbites-dashboard/brewandbites-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-
     AromasDashboardComponent,
     ChartComponent,
     BannerComponent,
-    BrewAndBitesFormComponent
+    BrewAndBitesFormComponent,
+    BrewandbitesDashboardComponent
   ],
   imports: [
     BrowserModule,
