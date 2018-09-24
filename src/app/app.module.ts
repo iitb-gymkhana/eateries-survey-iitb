@@ -24,6 +24,7 @@ import { CanteensFormComponent } from './canteens-form/canteens-form.component';
 import { CanteensDashboardComponent } from './dashboard/canteens-dashboard/canteens-dashboard.component';
 import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-dashboard.component';
 import { ChartComponent } from './chart/chart.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ChartComponent } from './chart/chart.component';
     CanteensFormComponent,
     CanteensDashboardComponent,
     AromasDashboardComponent,
-    ChartComponent
+    ChartComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

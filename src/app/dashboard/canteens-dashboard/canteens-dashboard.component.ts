@@ -63,6 +63,7 @@ export class CanteensDashboardComponent implements OnInit {
   // }
 
   getHostelData(hostel) {
+    console.log('change');
     this.gotData = false;
     this.fetchingData = true;
     const _ = this.snackbar.dismiss();
@@ -72,6 +73,7 @@ export class CanteensDashboardComponent implements OnInit {
       .subscribe(
         (res) => {
           this.surveyData = res;
+          console.log(this.surveyData);
           this.fetchingData = false;
           this.gotData = true;
         }

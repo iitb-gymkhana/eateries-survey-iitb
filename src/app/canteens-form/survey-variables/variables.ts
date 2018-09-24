@@ -33,7 +33,7 @@ const frequency = [
 const frequencyOptions = [0, 1, 2, 3];
 // assertEqualLength(frequencies, 'frequencies');
 
-const noIdeaRating = ratingOptions.length - 1;
+const noIdeaRating = (ratingOptions.length - 1).toString();
 const foodItems = [
     { id: 0, value: noIdeaRating },
     { id: 1, value: noIdeaRating },

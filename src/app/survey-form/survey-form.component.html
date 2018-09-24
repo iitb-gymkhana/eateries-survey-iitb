@@ -1,99 +1,113 @@
-<div class="container">
-  <mat-progress-bar mode="buffer" [hidden]="!formSubmitting"></mat-progress-bar>
-  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="formSubmitted || formSubmitting">
+<section class="section">
+  <div class="container">
+    <!-- <mat-progress-bar mode="buffer" [hidden]="!formSubmitting"></mat-progress-bar> -->
+    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="formSubmitted || formSubmitting">
 
-    <div class="row" *ngFor="let formControl of form">
-      <div class="col-sm">
-        <ng-container *ngIf="formControl.type === 'input'">
-          <ng-container *ngFor="let model of surveyModel[formControl.model]">
-            <mat-form-field class="form-input-full-width">
-              <input matInput placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                [required]="formControl.required" pattern="{{formControl.pattern}}">
-            </mat-form-field>
+      <div class="columns" *ngFor="let formControl of form">
+        <div class="column">
+          <ng-container *ngIf="formControl.type === 'input'">
+            <ng-container *ngFor="let model of surveyModel[formControl.model]">
+              <div class="field">
+                <label class="label">{{formControl.label}}</label>
+                <div class="control">
+                  <input class="input" placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
+                    [required]="false" pattern="{{formControl.pattern}}">
+                </div>
+              </div>
+            </ng-container>
           </ng-container>
 
-        </ng-container>
-
-        <ng-container *ngIf="formControl.type === 'select'">
-          <ng-container *ngFor="let model of surveyModel[formControl.model]">
-            <mat-form-field class="form-input-full-width">
-              <mat-select placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                [required]="formControl.required">
-                <mat-option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
-                  {{ option }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+          <ng-container *ngIf="formControl.type === 'select'">
+            <ng-container *ngFor="let model of surveyModel[formControl.model]">
+              <div class="field">
+                <label class="label">{{formControl.label}}</label>
+                <div class="control">
+                  <div class="select is-focused">
+                    <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="false">
+                      <option value="" disabled selected>{{formControl.label}}</option>
+                      <option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
+                        {{ option }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
           </ng-container>
-        </ng-container>
 
-        <ng-container *ngIf="formControl.type === 'radio-group'">
-          <ng-container *ngFor="let model of surveyModel[formControl.model]">
-            <div class="radio-group-label"><strong>{{formControl.label}}</strong></div>
-            <mat-radio-group class="radio-group" [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
-              <mat-radio-button *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
-                {{ option }}
-              </mat-radio-button>
-            </mat-radio-group>
+          <ng-container *ngIf="formControl.type === 'radio-group'">
+            <ng-container *ngFor="let model of surveyModel[formControl.model]">
+              <div class="field">
+                <label class="label">{{formControl.label}}</label>
+                <div class="control radio-group">
+                  <ng-container *ngFor="let option of formControl.options; let i = index;">
+                    <input class="is-checkradio" id="{{formControl.model}}{{i}}" type="radio" value="{{formControl.values[i]}}"
+                      [(ngModel)]="model.value" name="{{formControl.model}}" [required]="false">
+                    <label for="{{formControl.model}}{{i}}">{{option}}</label>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
           </ng-container>
-        </ng-container>
 
-        <ng-container *ngIf="formControl.type === 'multiple-choice-grid'">
-          <div class="question-quality">
-            <strong>{{formControl.label}}</strong>
-            <small class="text-muted">
-              <p>{{formControl.subLabel}}</p>
-            </small>
-          </div>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col" *ngFor="let colLabel of formControl.columnLabels">{{ colLabel }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let rowLabel of formControl.rowLabels; let i = index">
-                  <th scope="row">{{ rowLabel }}</th>
-                  <td *ngFor="let colValue of formControl.columnValues">
-                    <mat-radio-group [(ngModel)]="surveyModel[formControl.model][i].value" name="{{formControl.model}}{{i}}"
-                      [required]="formControl.required">
-                      <mat-radio-button [value]="colValue"></mat-radio-button>
-                    </mat-radio-group>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </ng-container>
-
-        <ng-container *ngIf="formControl.type === 'paragraph'">
-          <ng-container *ngFor="let model of surveyModel[formControl.model]">
-            <div><strong>{{formControl.label}}</strong></div>
-            <mat-form-field class="form-input-full-width">
-              <textarea matInput placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value"
-                name="{{formControl.model}}" [required]="formControl.required"></textarea>
-            </mat-form-field>
+          <ng-container *ngIf="formControl.type === 'multiple-choice-grid'">
+            <div class="field">
+              <label class="label">{{formControl.label}}</label>
+              <small class="text-muted">
+                <p>{{formControl.subLabel}}</p>
+              </small>
+              <div class="control">
+                <div class="table__wrapper">
+                  <table class="table is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" *ngFor="let colLabel of formControl.columnLabels">{{ colLabel }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let rowLabel of formControl.rowLabels; let i = index">
+                        <th scope="row">{{ rowLabel }}</th>
+                        <td *ngFor="let colValue of formControl.columnValues">
+                          <input class="is-checkradio" type="radio" [(ngModel)]="surveyModel[formControl.model][i].value"
+                            name="{{formControl.model}}{{i}}" [required]="false" value="{{colValue}}" id="{{formControl.model}}{{i}}{{colValue}}">
+                          <label for="{{formControl.model}}{{i}}{{colValue}}"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </ng-container>
-        </ng-container>
 
+          <ng-container *ngIf="formControl.type === 'paragraph'">
+            <ng-container *ngFor="let model of surveyModel[formControl.model]">
+              <div class="field">
+                <label class="label">{{formControl.label}}</label>
+                <textarea class="textarea" placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value" name="{{formControl.model}}"
+                  [required]="false"></textarea>
+              </div>
+            </ng-container>
+          </ng-container>
+
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm">
-        <button mat-raised-button color="primary" [disabled]="!surveyForm.form.valid">Submit</button>
+      <div class="row">
+        <div class="col-sm">
+          <button class="button is-primary" [disabled]="!surveyForm.form.valid">Submit</button>
+        </div>
       </div>
-    </div>
 
-  </form>
+    </form>
 
-  <!-- <pre>{{ diagnostic | json }}</pre> -->
+    <!-- <pre>{{ diagnostic | json }}</pre> -->
 
-  <div class="row" [hidden]="!formSubmitted">
-    <div class="col-sm">
-      Thank you for submitting the form
+    <div class="row" [hidden]="!formSubmitted">
+      <div class="col-sm">
+        Thank you for submitting the form
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -19,36 +19,38 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     const fields = Object.keys(this.surveyData);
-
-    const _values = Object.values(this.surveyData['frequency']);
-    for (let i = 0; i < _values.length; i++) {
-      this.numData = +(_values[i]);
-    }
-
-    for (let i = 0; i < fields.length; i++) {
-      const _data = {
-        title: fields[i]
-      };
-
-      let labels;
-      const title = _data['title'];
-
-      if (title === 'hostel') {
-        labels = Object.values(this.surveyOptionsMappings['hostels']);
-      } else if (title === 'frequency') {
-        labels = Object.values(this.surveyOptionsMappings['frequencies']);
-      } else if (title === 'absenceMenuItemTimes') {
-        labels = Object.values(this.surveyOptionsMappings['absenceMenuItemTimes']);
-      } else {
-        labels = Object.values(this.surveyOptionsMappings['ratings']);
+    console.log(fields);
+    if (fields.length !== 0) {
+      console.log('here');
+      const _values = Object.values(this.surveyData['frequency']);
+      for (let i = 0; i < _values.length; i++) {
+        this.numData = +(_values[i]);
       }
-      _data['labels'] = labels;
 
-      _data['data'] = labels.map((x) => this.surveyData[title] ? this.surveyData[title][x] : 0);
+      for (let i = 0; i < fields.length; i++) {
+        const _data = {
+          title: fields[i]
+        };
 
-      this.chartData.push(_data);
+        let labels;
+        const title = _data['title'];
+
+        if (title === 'hostel') {
+          labels = Object.values(this.surveyOptionsMappings['hostels']);
+        } else if (title === 'frequency') {
+          labels = Object.values(this.surveyOptionsMappings['frequencies']);
+        } else if (title === 'absenceMenuItemTimes') {
+          labels = Object.values(this.surveyOptionsMappings['absenceMenuItemTimes']);
+        } else {
+          labels = Object.values(this.surveyOptionsMappings['ratings']);
+        }
+        _data['labels'] = labels;
+
+        _data['data'] = labels.map((x) => this.surveyData[title] ? this.surveyData[title][x] : 0);
+
+        this.chartData.push(_data);
+      }
     }
-
   }
 
 

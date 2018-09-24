@@ -1,24 +1,32 @@
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-          <mat-form-field>
-            <mat-select placeholder="Select hostel" (selectionChange)="getHostelData($event.value)" #hostelDropDown>
-              <mat-option *ngFor="let hostel of hostels" [value]="hostel">
-                Hostel {{ surveyOptionsMappings['hostels'][hostel] }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-6">
+        <div class="field">
+          <label class="label">Hostel</label>
+          <div class="control">
+            <div class="select">
+              <select (change)="getHostelData($event.target.value)">
+                <option value="" disabled selected>Select hostel</option>
+                <option *ngFor="let hostel of hostels" value="{{hostel}}">
+                  Hostel {{ surveyOptionsMappings['hostels'][hostel] }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm download-csv-button">
-        <a href="{{apiBaseUrl}}/canteens/csv">
-          <button mat-raised-button>
-            Download CSV
-          </button>      
-        </a>
+
+      <div class="column is-6">
+        <div class="field">
+          <div class="control">
+            <a class="button is-primary" href="{{apiBaseUrl}}/canteens/csv">Download CSV</a>
+          </div>
+        </div>
       </div>
     </div>
-  
-    <mat-progress-bar mode="buffer" [hidden]="!fetchingData"></mat-progress-bar>
-  
-    <app-chart *ngIf="surveyData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
+
+    <app-chart *ngIf="gotData" [surveyOptionsMappings]="surveyOptionsMappings" [surveyData]="surveyData"></app-chart>
+
   </div>
+</section>

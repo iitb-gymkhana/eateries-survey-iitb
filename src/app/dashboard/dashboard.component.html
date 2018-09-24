@@ -1,19 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
+<app-banner title="Dashboard"></app-banner>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6 has-text-centered">
         <a routerLink="canteens">
-          <button mat-raised-button>
+          <button class="button is-medium is-outlined is-fullwidth is-primary">
             Hostel Canteens
-          </button>      
+          </button>
         </a>
+      </div>
     </div>
-    <div class="col-sm">
-      <a routerLink="aromas">
-        <button mat-raised-button>
-          Aromas
-        </button>      
-      </a>
+
+    <div class="columns is-centered">
+      <div class="column is-6 has-text-centered">
+        <a routerLink="aromas">
+          <button class="button is-medium is-outlined is-fullwidth is-primary">
+            Aromas
+          </button>
+        </a>
+      </div>
     </div>
   </div>
-
-</div>
+</section>
