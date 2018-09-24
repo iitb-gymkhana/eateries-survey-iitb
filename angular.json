@@ -26,9 +26,14 @@
               "src/styles.css",
               "node_modules/bulma/css/bulma.min.css",
               "node_modules/bulma-checkradio/dist/css/bulma-checkradio.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bulma-pageloader/dist/css/bulma-pageloader.min.css",
+              "node_modules/noty/lib/noty.css",
+              "node_modules/noty/lib/themes/nest.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/noty/lib/noty.min.js"
+            ]
           },
           "configurations": {
             "production": {
