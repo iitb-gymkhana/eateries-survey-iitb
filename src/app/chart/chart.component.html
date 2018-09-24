@@ -1,5 +1,5 @@
-<div class="row charts">
-    <div class="col" *ngFor="let data of chartData; let i = index">
+<div class="columns is-multiline charts">
+    <div class="column" *ngFor="let data of chartData; let i = index">
       <app-barchart 
         [barChartData]="data"
         [canvasId]="'canvas'+i"
