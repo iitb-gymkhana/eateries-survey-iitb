@@ -6,6 +6,7 @@ import { CanteensFormComponent } from './canteens-form/canteens-form.component';
 import { AromasFormComponent } from './aromas-form/aromas-form.component';
 import { CanteensDashboardComponent } from './dashboard/canteens-dashboard/canteens-dashboard.component';
 import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-dashboard.component';
+import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'dashboard/aromas', component: AromasDashboardComponent },
   { path: 'canteens', component: CanteensFormComponent},
   { path: 'aromas', component: AromasFormComponent},
+  { path: 'brewandbites', component: BrewAndBitesFormComponent},
   { path: '', component: HomeComponent }
 ];
 

@@ -25,6 +25,7 @@ import { CanteensDashboardComponent } from './dashboard/canteens-dashboard/cante
 import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-dashboard.component';
 import { ChartComponent } from './chart/chart.component';
 import { BannerComponent } from './banner/banner.component';
+import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BannerComponent } from './banner/banner.component';
     CanteensDashboardComponent,
     AromasDashboardComponent,
     ChartComponent,
-    BannerComponent
+    BannerComponent,
+    BrewAndBitesFormComponent
   ],
   imports: [
     BrowserModule,

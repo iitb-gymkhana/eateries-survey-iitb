@@ -29,7 +29,7 @@ const frequencyOptions = [0, 1, 2, 3];
 
 const noIdeaRating = (ratingOptions.length - 1).toString();
 
-const breakfastItems = [
+const vegStarters = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
@@ -42,61 +42,82 @@ const breakfastItems = [
   { id: 9, value: noIdeaRating },
   { id: 10, value: noIdeaRating },
   { id: 11, value: noIdeaRating },
-  { id: 12, value: noIdeaRating },
-  { id: 13, value: noIdeaRating },
-  { id: 14, value: noIdeaRating },
-  { id: 15, value: noIdeaRating },
-  { id: 16, value: noIdeaRating },
-  { id: 17, value: noIdeaRating },
-  { id: 18, value: noIdeaRating },
-  { id: 19, value: noIdeaRating },
-  { id: 20, value: noIdeaRating },
-  { id: 21, value: noIdeaRating },
-  { id: 22, value: noIdeaRating },
-  { id: 23, value: noIdeaRating },
-  { id: 24, value: noIdeaRating },
-  { id: 25, value: noIdeaRating },
-  { id: 26, value: noIdeaRating },
-  { id: 27, value: noIdeaRating }
+  { id: 12, value: noIdeaRating }
 ];
-assertEqualLength(breakfastItems, 'breakfastItems');
 
-const appetizersItems = [
+assertEqualLength(vegStarters, 'vegStarters');
+
+const nonVegStarters = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating }
+];
+
+assertEqualLength(nonVegStarters, 'nonVegStarters');
+
+const regularCoffee = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
   { id: 3, value: noIdeaRating },
   { id: 4, value: noIdeaRating },
   { id: 5, value: noIdeaRating },
-  { id: 6, value: noIdeaRating },
-  { id: 7, value: noIdeaRating },
-  { id: 8, value: noIdeaRating },
-  { id: 9, value: noIdeaRating },
-  { id: 10, value: noIdeaRating },
-  { id: 11, value: noIdeaRating },
-  { id: 12, value: noIdeaRating },
-  { id: 13, value: noIdeaRating },
-  { id: 14, value: noIdeaRating },
-  { id: 15, value: noIdeaRating },
-  { id: 16, value: noIdeaRating },
-  { id: 17, value: noIdeaRating },
-  { id: 18, value: noIdeaRating },
-  { id: 19, value: noIdeaRating },
-  { id: 20, value: noIdeaRating },
-  { id: 21, value: noIdeaRating },
-  { id: 22, value: noIdeaRating },
-  { id: 23, value: noIdeaRating },
-  { id: 24, value: noIdeaRating },
-  { id: 25, value: noIdeaRating },
-  { id: 26, value: noIdeaRating },
-  { id: 27, value: noIdeaRating },
-  { id: 28, value: noIdeaRating },
-  { id: 29, value: noIdeaRating },
-  { id: 30, value: noIdeaRating }
+  { id: 6, value: noIdeaRating }
 ];
-assertEqualLength(appetizersItems, 'appetizersItems');
 
-const biryaniVegItems = [
+assertEqualLength(regularCoffee, 'regularCoffee');
+
+const blackCoffee = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating },
+  { id: 4, value: noIdeaRating },
+  { id: 5, value: noIdeaRating },
+  { id: 6, value: noIdeaRating }
+];
+
+assertEqualLength(blackCoffee, 'blackCoffee');
+
+const milkshakes = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating },
+  { id: 4, value: noIdeaRating }
+];
+
+assertEqualLength(milkshakes, 'milkshakes');
+
+const sundaes = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating }
+];
+
+assertEqualLength(sundaes, 'sundaes');
+
+const nonVegPizzas = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating }
+];
+
+assertEqualLength(nonVegPizzas, 'nonVegPizzas');
+
+const vegPizzas = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating },
+  { id: 4, value: noIdeaRating },
+  { id: 5, value: noIdeaRating }
+];
+
+assertEqualLength(vegPizzas, 'vegPizzas');
+
+const sandwiches = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
@@ -106,47 +127,41 @@ const biryaniVegItems = [
   { id: 6, value: noIdeaRating },
   { id: 7, value: noIdeaRating }
 ];
-assertEqualLength(biryaniVegItems, 'biryaniVegItems');
 
-const biryaniNonVegItems = [
+assertEqualLength(sandwiches, 'sandwiches');
+
+const paninis = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating },
+  { id: 4, value: noIdeaRating },
+  { id: 5, value: noIdeaRating }
+];
+
+assertEqualLength(paninis, 'paninis');
+
+const wraps = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating },
+  { id: 3, value: noIdeaRating },
+  { id: 4, value: noIdeaRating },
+  { id: 5, value: noIdeaRating },
+  { id: 6, value: noIdeaRating }
+];
+
+assertEqualLength(wraps, 'wraps');
+
+const pastas = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating }
 ];
-assertEqualLength(biryaniNonVegItems, 'biryaniNonVegItems');
 
-const tandoorItems = [
-  { id: 0, value: noIdeaRating },
-  { id: 1, value: noIdeaRating },
-  { id: 2, value: noIdeaRating },
-  { id: 3, value: noIdeaRating },
-  { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating },
-  { id: 6, value: noIdeaRating }
-];
-assertEqualLength(tandoorItems, 'tandoorItems');
+assertEqualLength(pastas, 'pastas');
 
-const vegSpecialDishesItems = [
-  { id: 0, value: noIdeaRating },
-  { id: 1, value: noIdeaRating },
-  { id: 2, value: noIdeaRating },
-  { id: 3, value: noIdeaRating },
-  { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating },
-  { id: 6, value: noIdeaRating },
-  { id: 7, value: noIdeaRating },
-  { id: 8, value: noIdeaRating },
-  { id: 9, value: noIdeaRating },
-  { id: 10, value: noIdeaRating },
-  { id: 11, value: noIdeaRating },
-  { id: 12, value: noIdeaRating },
-  { id: 13, value: noIdeaRating },
-  { id: 14, value: noIdeaRating },
-  { id: 15, value: noIdeaRating }
-];
-assertEqualLength(vegSpecialDishesItems, 'vegSpecialDishesItems');
-
-const paneerSpecialDishesItems = [
+const burgers = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
@@ -154,40 +169,10 @@ const paneerSpecialDishesItems = [
   { id: 4, value: noIdeaRating },
   { id: 5, value: noIdeaRating }
 ];
-assertEqualLength(paneerSpecialDishesItems, 'paneerSpecialDishesItems');
 
-const chickenSpecialDishesItems = [
-  { id: 0, value: noIdeaRating },
-  { id: 1, value: noIdeaRating },
-  { id: 2, value: noIdeaRating },
-  { id: 3, value: noIdeaRating },
-  { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating }
-];
-assertEqualLength(chickenSpecialDishesItems, 'chickenSpecialDishesItems');
+assertEqualLength(burgers, 'burgers');
 
-const fishDishesItems = [
-  { id: 0, value: noIdeaRating },
-  { id: 1, value: noIdeaRating },
-  { id: 2, value: noIdeaRating },
-  { id: 3, value: noIdeaRating },
-  { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating },
-  { id: 6, value: noIdeaRating }
-];
-assertEqualLength(fishDishesItems, 'fishDishesItems');
-
-const vegRiceAndNoodlesItems = [
-  { id: 0, value: noIdeaRating },
-  { id: 1, value: noIdeaRating },
-  { id: 2, value: noIdeaRating },
-  { id: 3, value: noIdeaRating },
-  { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating }
-];
-assertEqualLength(vegRiceAndNoodlesItems, 'vegRiceAndNoodlesItems');
-
-const nonVegRiceAndNoodlesItems = [
+const extraToppingsOrDips = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
@@ -199,31 +184,80 @@ const nonVegRiceAndNoodlesItems = [
   { id: 8, value: noIdeaRating },
   { id: 9, value: noIdeaRating }
 ];
-assertEqualLength(nonVegRiceAndNoodlesItems, 'nonVegRiceAndNoodlesItems');
 
-const breadBasketItems = [
+assertEqualLength(extraToppingsOrDips, 'extraToppingsOrDips');
+
+const regularTea = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating }
 ];
-assertEqualLength(breadBasketItems, 'breadBasketItems');
 
-const beveragesAndJuicesItems = [
+assertEqualLength(regularTea, 'regularTea');
+
+const greenTea = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating }
+];
+
+assertEqualLength(greenTea, 'greenTea');
+
+const infusionTea = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating }
+];
+
+assertEqualLength(infusionTea, 'infusionTea');
+
+const mojito = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating }
+];
+
+assertEqualLength(infusionTea, 'infusionTea');
+
+const slush = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating }
+];
+
+assertEqualLength(slush, 'slush');
+
+const iceTea = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating }
+];
+
+assertEqualLength(iceTea, 'iceTea');
+
+const frappe = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
   { id: 3, value: noIdeaRating },
   { id: 4, value: noIdeaRating },
-  { id: 5, value: noIdeaRating },
-  { id: 6, value: noIdeaRating }
+  { id: 5, value: noIdeaRating }
 ];
-assertEqualLength(beveragesAndJuicesItems, 'beveragesAndJuicesItems');
 
-const dessertItems = [
+assertEqualLength(frappe, 'frappe');
+
+const brewtastic = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating }
 ];
-assertEqualLength(dessertItems, 'dessertItems');
+
+assertEqualLength(brewtastic, 'brewtastic');
+
+const onTheRocks = [
+  { id: 0, value: noIdeaRating },
+  { id: 1, value: noIdeaRating },
+  { id: 2, value: noIdeaRating }
+];
+
+assertEqualLength(onTheRocks, 'onTheRocks');
 
 const hygieneOfItems = [
   { id: 0, value: noIdeaRating },
@@ -257,20 +291,29 @@ export {
   phoneNumber,
   frequency,
   frequencyOptions,
-  breakfastItems,
-  appetizersItems,
-  biryaniVegItems,
-  biryaniNonVegItems,
-  tandoorItems,
-  vegSpecialDishesItems,
-  paneerSpecialDishesItems,
-  chickenSpecialDishesItems,
-  fishDishesItems,
-  vegRiceAndNoodlesItems,
-  nonVegRiceAndNoodlesItems,
-  breadBasketItems,
-  beveragesAndJuicesItems,
-  dessertItems,
+  vegStarters,
+  nonVegStarters,
+  regularCoffee,
+  blackCoffee,
+  milkshakes,
+  sundaes,
+  nonVegPizzas,
+  vegPizzas,
+  sandwiches,
+  paninis,
+  wraps,
+  pastas,
+  burgers,
+  extraToppingsOrDips,
+  regularTea,
+  greenTea,
+  infusionTea,
+  mojito,
+  slush,
+  iceTea,
+  frappe,
+  brewtastic,
+  onTheRocks,
   hygieneOfItems,
   absenceMenuItemTimes,
   absenceMenuItemTimesOptions,
