@@ -48,20 +48,23 @@ export class CanteensFormComponent implements OnInit {
       type: 'input',
       model: 'name',
       label: 'Name',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'input',
       model: 'phoneNumber',
       label: 'Mobile Number',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'input',
       model: 'email',
       label: 'Email Address',
       pattern: '[^ @]*@[^ @]*',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'select',
@@ -69,7 +72,8 @@ export class CanteensFormComponent implements OnInit {
       label: 'Hostel',
       options: hostelOptions.map(x => `Hostel ${this.surveyOptionsMapping['hostels'][x]}`),
       values: hostelOptions,
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'radio-group',
@@ -77,18 +81,21 @@ export class CanteensFormComponent implements OnInit {
       label: 'How frequently do you visit canteen?',
       options: frequencyOptions.map(x => this.surveyOptionsMapping['frequencies'][x]),
       values: frequencyOptions,
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'multiple-choice-grid',
       model: 'foodItems',
+      checkboxLabel: 'Food Items',
       label: 'Rate the quality of food items in canteen',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
       rowLabels: foodItems.map(x => this.surveyOptionsMapping['foodItems'][x.id]),
       rowValues: foodItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false
     },
     {
       type: 'multiple-choice-grid',
@@ -99,7 +106,8 @@ export class CanteensFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: hygieneOfItems.map(x => this.surveyOptionsMapping['hygieneOfItems'][x.id]),
       rowValues: hygieneOfItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'radio-group',
@@ -107,7 +115,8 @@ export class CanteensFormComponent implements OnInit {
       label: 'How often do you encounter with the absence of menu item or any other item?',
       options: absenceMenuItemTimesOptions.map(x => this.surveyOptionsMapping['absenceMenuItemTimes'][x]),
       values: absenceMenuItemTimesOptions,
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'multiple-choice-grid',
@@ -118,13 +127,15 @@ export class CanteensFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: otherParameters.map(x => this.surveyOptionsMapping['otherParameters'][x.id]),
       rowValues: otherParameters.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'paragraph',
       model: 'otherSuggestions',
       label: 'Other Suggestions/Comments',
-      placeholder: 'Your answer'
+      placeholder: 'Your answer',
+      formRequired: true
     }
   ];
 

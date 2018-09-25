@@ -1,132 +1,175 @@
-<section class="section">
-  <div class="container">
-    <div class="pageloader" [ngClass]="{'is-active': formSubmitting}">
-      <span class="title">Submitting...</span>
-    </div>
+<div class="pageloader" [ngClass]="{'is-active': formSubmitting}">
+  <span class="title">Submitting...</span>
+</div>
+<form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
 
-    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" [hidden]="formSubmitted || formSubmitting">
-
-      <div class="columns" *ngFor="let formControl of form">
-        <div class="column">
-          <ng-container *ngIf="formControl.type === 'input'">
-            <ng-container *ngFor="let model of surveyModel[formControl.model]">
-              <div class="field">
-                <label class="label">{{formControl.label}}</label>
-                <div class="control">
-                  <input class="input" placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                    [required]="formControl.required" pattern="{{formControl.pattern}}">
-                </div>
-              </div>
-            </ng-container>
-          </ng-container>
-
-          <ng-container *ngIf="formControl.type === 'select'">
-            <ng-container *ngFor="let model of surveyModel[formControl.model]">
-              <div class="field">
-                <label class="label">{{formControl.label}}</label>
-                <div class="control">
-                  <div class="select is-focused">
-                    <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
-                      <option value="" disabled selected>{{formControl.label}}</option>
-                      <option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
-                        {{ option }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </ng-container>
-
-          <ng-container *ngIf="formControl.type === 'radio-group'">
-            <ng-container *ngFor="let model of surveyModel[formControl.model]">
-              <div class="field">
-                <label class="label">{{formControl.label}}</label>
-                <div class="control radio-group">
-                  <ng-container *ngFor="let option of formControl.options; let i = index;">
-                    <input class="is-checkradio" id="{{formControl.model}}{{i}}" type="radio" value="{{formControl.values[i]}}"
-                      [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
-                    <label for="{{formControl.model}}{{i}}">{{option}}</label>
-                  </ng-container>
-                </div>
-              </div>
-            </ng-container>
-          </ng-container>
-
-          <ng-container *ngIf="formControl.type === 'multiple-choice-grid'">
-            <div class="field">
-              <label class="label">{{formControl.label}}</label>
-              <small class="text-muted">
-                <p>{{formControl.subLabel}}</p>
-              </small>
-              <div class="control">
-                <div class="table__wrapper">
-                  <table class="table is-fullwidth">
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col" *ngFor="let colLabel of formControl.columnLabels">{{ colLabel }}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let rowLabel of formControl.rowLabels; let i = index">
-                        <th scope="row">{{ rowLabel }}</th>
-                        <td *ngFor="let colValue of formControl.columnValues">
-                          <input class="is-checkradio" type="radio" [(ngModel)]="surveyModel[formControl.model][i].value"
-                            name="{{formControl.model}}{{i}}" [required]="formControl.required" value="{{colValue}}" id="{{formControl.model}}{{i}}{{colValue}}">
-                          <label for="{{formControl.model}}{{i}}{{colValue}}"></label>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="formControl.type === 'paragraph'">
-            <ng-container *ngFor="let model of surveyModel[formControl.model]">
-              <div class="field">
-                <label class="label">{{formControl.label}}</label>
-                <textarea class="textarea" placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value" name="{{formControl.model}}"
-                  [required]="formControl.required"></textarea>
-              </div>
-            </ng-container>
-          </ng-container>
-
-        </div>
-      </div>
+  <section class="section">
+    <div class="container">
 
       <div class="columns">
         <div class="column">
-          <button class="button is-primary" [disabled]="!surveyForm.form.valid">Submit</button>
-        </div>
-      </div>
+          <div class="steps">
+            <div class="step-item" [ngClass]="{ 'is-active': tab >= 0, 'is-success': tab > 0 }">
+              <div class="step-marker">1</div>
+            </div>
+            <div class="step-item" [ngClass]="{ 'is-active': tab >= 1, 'is-success': tab > 1 }">
+              <div class="step-marker">2</div>
+            </div>
+            <div class="step-item" [ngClass]="{ 'is-active': tab >= 2, 'is-success': tab >= 2 }">
+              <div class="step-marker">3</div>
+            </div>
 
-    </form>
+            <div class="steps-content">
+              <div class="step-content" [ngClass]="{ 'is-active animated fadeIn': tab === 0 }">
+                <br><br>
+                <div class="is-size-5 has-text-centered has-text-info">Select the items you want to give feedback for:</div>
+                <br>
+                <ng-container *ngFor="let formControl of form; let i = index">
+                  <div class="field" *ngIf="formControl.checkboxLabel">
+                    <input class="is-checkradio" id="checkbox-{{formControl.model}}{{i}}" type="checkbox" name="exampleCheckboxDefault"
+                      [(ngModel)]="formControl.formRequired">
+                    <label for="checkbox-{{formControl.model}}{{i}}">{{formControl.checkboxLabel}}</label>
+                  </div>
+                </ng-container>
+              </div>
 
-    <!-- <pre>{{ diagnostic | json }}</pre> -->
-    <div [hidden]="!formSubmitted">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <div class="check_mark">
-            <div class="sa-icon sa-success animate">
-              <span class="sa-line sa-tip animateSuccessTip"></span>
-              <span class="sa-line sa-long animateSuccessLong"></span>
-              <div class="sa-placeholder"></div>
-              <div class="sa-fix"></div>
+              <div class="step-content" [ngClass]="{ 'is-active animated fadeIn': tab === 1 }">
+                <br><br>
+                <ng-container *ngFor="let formControl of form">
+                  <div class="columns" *ngIf="formControl.formRequired">
+                    <div class="column">
+                      <ng-container *ngIf="formControl.type === 'input'">
+                        <ng-container *ngFor="let model of surveyModel[formControl.model]">
+                          <div class="field">
+                            <label class="label">{{formControl.label}}</label>
+                            <div class="control">
+                              <input class="input" placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
+                                [required]="formControl.required" pattern="{{formControl.pattern}}">
+                            </div>
+                          </div>
+                        </ng-container>
+                      </ng-container>
+
+                      <ng-container *ngIf="formControl.type === 'select'">
+                        <ng-container *ngFor="let model of surveyModel[formControl.model]">
+                          <div class="field">
+                            <label class="label">{{formControl.label}}</label>
+                            <div class="control">
+                              <div class="select is-focused">
+                                <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
+                                  <option value="" disabled selected>{{formControl.label}}</option>
+                                  <option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
+                                    {{ option }}
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </ng-container>
+
+                      <ng-container *ngIf="formControl.type === 'radio-group'">
+                        <ng-container *ngFor="let model of surveyModel[formControl.model]">
+                          <div class="field">
+                            <label class="label">{{formControl.label}}</label>
+                            <div class="control radio-group">
+                              <ng-container *ngFor="let option of formControl.options; let i = index;">
+                                <input class="is-checkradio" id="{{formControl.model}}{{i}}" type="radio" value="{{formControl.values[i]}}"
+                                  [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
+                                <label for="{{formControl.model}}{{i}}">{{option}}</label>
+                              </ng-container>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </ng-container>
+
+                      <ng-container *ngIf="formControl.type === 'multiple-choice-grid'">
+                        <div class="field">
+                          <label class="label">{{formControl.label}}</label>
+                          <small class="text-muted">
+                            <p>{{formControl.subLabel}}</p>
+                          </small>
+                          <div class="control">
+                            <div class="table__wrapper">
+                              <table class="table is-fullwidth">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" *ngFor="let colLabel of formControl.columnLabels">{{ colLabel }}</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let rowLabel of formControl.rowLabels; let i = index">
+                                    <th scope="row">{{ rowLabel }}</th>
+                                    <td *ngFor="let colValue of formControl.columnValues">
+                                      <input class="is-checkradio" type="radio" [(ngModel)]="surveyModel[formControl.model][i].value"
+                                        name="{{formControl.model}}{{i}}" [required]="formControl.required" value="{{colValue}}"
+                                        id="{{formControl.model}}{{i}}{{colValue}}">
+                                      <label for="{{formControl.model}}{{i}}{{colValue}}"></label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+
+                      <ng-container *ngIf="formControl.type === 'paragraph'">
+                        <ng-container *ngFor="let model of surveyModel[formControl.model]">
+                          <div class="field">
+                            <label class="label">{{formControl.label}}</label>
+                            <textarea class="textarea" placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value"
+                              name="{{formControl.model}}" [required]="formControl.required"></textarea>
+                          </div>
+                        </ng-container>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="step-content" [ngClass]="{ 'is-active animated fadeIn': tab === 2 }">
+                <br><br>
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <div class="check_mark">
+                      <div class="sa-icon sa-success animate">
+                        <span class="sa-line sa-tip animateSuccessTip"></span>
+                        <span class="sa-line sa-long animateSuccessLong"></span>
+                        <div class="sa-placeholder"></div>
+                        <div class="sa-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <div class="notification is-primary">
+                      Thank you for submitting the feedback
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="steps-actions" *ngIf="!formSubmitted">
+              <div class="steps-action">
+                <button (click)="changeTab(-1)" [disabled]="tab === 0" data-nav="previous" class="button is-outlined is-info">Previous</button>
+              </div>
+              <div class="steps-action">
+                <button *ngIf="tab !== 1" (click)="changeTab(1)" data-nav="next" class="button is-outlined is-info">Next</button>
+                <button *ngIf="tab === 1" class="button is-outlined is-primary" [disabled]="!surveyForm.form.valid">Submit</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <div class="notification is-primary">
-            Thank you for submitting the feedback
-          </div>
-        </div>
-      </div>
+      <!-- <pre>{{ diagnostic | json }}</pre> -->
     </div>
-  </div>
-</section>
+  </section>
+</form>

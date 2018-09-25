@@ -16,11 +16,13 @@ export class SurveyFormComponent implements OnInit {
   formSubmitting = false;
   formSubmitted = false;
 
+  tab = 0;
+
   onDataSubmission(res) {
     this.formSubmitting = false;
     this.formSubmitted = true;
     this.submitted.emit(true);
-    window.scrollTo(0, 0);
+    this.changeTab(1);
   }
 
   onSubmit() {
@@ -37,6 +39,13 @@ export class SurveyFormComponent implements OnInit {
 
   // TODO: Remove this after debugging
   get diagnostic() { return this.surveyModel; }
+
+  changeTab(n) {
+    this.tab += n;
+    if (this.tab < 0) { this.tab = 0; }
+    if (this.tab > 2) { this.tab = 2; }
+    window.scrollTo(0, 0);
+  }
 
   constructor(
     private http: HttpClient,

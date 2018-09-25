@@ -72,20 +72,23 @@ export class AromasFormComponent implements OnInit {
       type: 'input',
       model: 'name',
       label: 'Name',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'input',
       model: 'phoneNumber',
       label: 'Mobile Number',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'input',
       model: 'email',
       label: 'Email Address',
       pattern: '[^ @]*@[^ @]*',
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'radio-group',
@@ -93,18 +96,21 @@ export class AromasFormComponent implements OnInit {
       label: 'How frequently do you visit Aromas?',
       options: frequencyOptions.map(x => this.surveyOptionsMapping['frequencies'][x]),
       values: frequencyOptions,
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'multiple-choice-grid',
       model: 'breakfastItems',
+      checkboxLabel: 'Breakfast Items',
       label: 'Rate the quality breakfast items in Aromas',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
       rowLabels: breakfastItems.map(x => this.surveyOptionsMapping['breakfastItems'][x.id]),
       rowValues: breakfastItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false
     },
     {
       type: 'multiple-choice-grid',
@@ -115,7 +121,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: appetizersItems.map(x => this.surveyOptionsMapping['appetizersItems'][x.id]),
       rowValues: appetizersItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Appetizer Items'
     },
     {
       type: 'multiple-choice-grid',
@@ -126,7 +134,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: biryaniVegItems.map(x => this.surveyOptionsMapping['biryaniVegItems'][x.id]),
       rowValues: biryaniVegItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Biryani Veg Items'
     },
     {
       type: 'multiple-choice-grid',
@@ -137,7 +147,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: biryaniNonVegItems.map(x => this.surveyOptionsMapping['biryaniNonVegItems'][x.id]),
       rowValues: biryaniNonVegItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Biryani Non Veg Items'
     },
     {
       type: 'multiple-choice-grid',
@@ -148,7 +160,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: tandoorItems.map(x => this.surveyOptionsMapping['tandoorItems'][x.id]),
       rowValues: tandoorItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Tandoor Items'
     },
     {
       type: 'multiple-choice-grid',
@@ -159,7 +173,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: vegSpecialDishesItems.map(x => this.surveyOptionsMapping['vegSpecialDishesItems'][x.id]),
       rowValues: vegSpecialDishesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Veg Special Dishes'
     },
     {
       type: 'multiple-choice-grid',
@@ -170,7 +186,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: paneerSpecialDishesItems.map(x => this.surveyOptionsMapping['paneerSpecialDishesItems'][x.id]),
       rowValues: paneerSpecialDishesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Paneer Special Dishes'
     },
     {
       type: 'multiple-choice-grid',
@@ -181,7 +199,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: chickenSpecialDishesItems.map(x => this.surveyOptionsMapping['chickenSpecialDishesItems'][x.id]),
       rowValues: chickenSpecialDishesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Chicken Special Dishes'
     },
     {
       type: 'multiple-choice-grid',
@@ -192,7 +212,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: fishDishesItems.map(x => this.surveyOptionsMapping['fishDishesItems'][x.id]),
       rowValues: fishDishesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Fish Dishes'
     },
     {
       type: 'multiple-choice-grid',
@@ -203,7 +225,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: vegRiceAndNoodlesItems.map(x => this.surveyOptionsMapping['vegRiceAndNoodlesItems'][x.id]),
       rowValues: vegRiceAndNoodlesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Veg Rice and Noodles'
     },
     {
       type: 'multiple-choice-grid',
@@ -214,7 +238,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: nonVegRiceAndNoodlesItems.map(x => this.surveyOptionsMapping['nonVegRiceAndNoodlesItems'][x.id]),
       rowValues: nonVegRiceAndNoodlesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Non Veg Rice and Noodles'
     },
     {
       type: 'multiple-choice-grid',
@@ -225,7 +251,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: breadBasketItems.map(x => this.surveyOptionsMapping['breadBasketItems'][x.id]),
       rowValues: breadBasketItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Bread and Basket Items'
     },
     {
       type: 'multiple-choice-grid',
@@ -236,7 +264,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: beveragesAndJuicesItems.map(x => this.surveyOptionsMapping['beveragesAndJuicesItems'][x.id]),
       rowValues: beveragesAndJuicesItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Beverages and Juices'
     },
     {
       type: 'multiple-choice-grid',
@@ -247,7 +277,9 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: dessertItems.map(x => this.surveyOptionsMapping['dessertItems'][x.id]),
       rowValues: dessertItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: false,
+      checkboxLabel: 'Dessert'
     },
     {
       type: 'multiple-choice-grid',
@@ -258,7 +290,8 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: hygieneOfItems.map(x => this.surveyOptionsMapping['hygieneOfItems'][x.id]),
       rowValues: hygieneOfItems.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'radio-group',
@@ -266,7 +299,8 @@ export class AromasFormComponent implements OnInit {
       label: 'How often do you encounter with the absence of menu item or any other item?',
       options: absenceMenuItemTimesOptions.map(x => this.surveyOptionsMapping['absenceMenuItemTimes'][x]),
       values: absenceMenuItemTimesOptions,
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'multiple-choice-grid',
@@ -277,7 +311,8 @@ export class AromasFormComponent implements OnInit {
       columnValues: ratingOptions,
       rowLabels: otherParameters.map(x => this.surveyOptionsMapping['otherParameters'][x.id]),
       rowValues: otherParameters.map(x => x.id),
-      required: true
+      required: true,
+      formRequired: true
     },
     {
       type: 'paragraph',
