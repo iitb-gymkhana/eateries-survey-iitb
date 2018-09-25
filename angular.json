@@ -29,10 +29,13 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/bulma-pageloader/dist/css/bulma-pageloader.min.css",
               "node_modules/noty/lib/noty.css",
-              "node_modules/noty/lib/themes/nest.css"
+              "node_modules/noty/lib/themes/nest.css",
+              "node_modules/bulma-steps/dist/css/bulma-steps.min.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
-              "node_modules/noty/lib/noty.min.js"
+              "node_modules/noty/lib/noty.min.js",
+              "node_modules/bulma-steps/dist/js/bulma-steps.min.js"
             ]
           },
           "configurations": {
