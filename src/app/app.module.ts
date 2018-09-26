@@ -27,6 +27,7 @@ import { ChartComponent } from './chart/chart.component';
 import { BannerComponent } from './banner/banner.component';
 import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-form.component';
 import { BrewandbitesDashboardComponent } from './dashboard/brewandbites-dashboard/brewandbites-dashboard.component';
+import { CampusHubFormComponent } from './campus-hub-form/campus-hub-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BrewandbitesDashboardComponent } from './dashboard/brewandbites-dashboa
     ChartComponent,
     BannerComponent,
     BrewAndBitesFormComponent,
-    BrewandbitesDashboardComponent
+    BrewandbitesDashboardComponent,
+    CampusHubFormComponent
   ],
   imports: [
     BrowserModule,
