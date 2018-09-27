@@ -1,4 +1,4 @@
-export class BrewAndBitesSurveyModel {
+export class CampusHubSurveyModel {
   constructor(
       public name: Array<Object>,
       public phoneNumber: Array<Object>,

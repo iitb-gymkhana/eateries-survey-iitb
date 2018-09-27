@@ -8,6 +8,7 @@ import { CanteensDashboardComponent } from './dashboard/canteens-dashboard/cante
 import { AromasDashboardComponent } from './dashboard/aromas-dashboard/aromas-dashboard.component';
 import { BrewAndBitesFormComponent } from './brew-and-bites-form/brew-and-bites-form.component';
 import { BrewandbitesDashboardComponent } from './dashboard/brewandbites-dashboard/brewandbites-dashboard.component';
+import { CampusHubFormComponent } from './campus-hub-form/campus-hub-form.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'canteens', component: CanteensFormComponent},
   { path: 'aromas', component: AromasFormComponent},
   { path: 'brewandbites', component: BrewAndBitesFormComponent},
+  { path: 'campushub', component: CampusHubFormComponent },
   { path: '', component: HomeComponent }
 ];
 

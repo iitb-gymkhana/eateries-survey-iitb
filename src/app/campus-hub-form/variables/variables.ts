@@ -29,7 +29,7 @@ const frequencyOptions = [0, 1, 2, 3];
 
 const noIdeaRating = (ratingOptions.length - 1).toString();
 
-const regularCoffee = [
+const regularFruitJuice = [
   { id: 0, value: noIdeaRating },
   { id: 1, value: noIdeaRating },
   { id: 2, value: noIdeaRating },
@@ -45,7 +45,7 @@ const regularCoffee = [
   { id: 12, value: noIdeaRating }
 ];
 
-assertEqualLength(regularCoffee, 'regularCoffeeMap');
+assertEqualLength(regularFruitJuice, 'regularFruitJuice');
 
 const mixedFruitJuice = [
   { id: 0, value: noIdeaRating },
@@ -61,7 +61,7 @@ const mixedFruitJuice = [
   { id: 10, value: noIdeaRating }
 ];
 
-assertEqualLength(mixedFruitJuice, 'mixedFruitJuiceMap');
+assertEqualLength(mixedFruitJuice, 'mixedFruitJuice');
 
 const iceCreamShakes = [
   { id: 0, value: noIdeaRating },
@@ -69,7 +69,7 @@ const iceCreamShakes = [
   { id: 2, value: noIdeaRating }
 ];
 
-assertEqualLength(iceCreamShakes, 'iceCreamShakesMap');
+assertEqualLength(iceCreamShakes, 'iceCreamShakes');
 
 const milkShakes = [
   { id: 0, value: noIdeaRating },
@@ -84,7 +84,7 @@ const milkShakes = [
   { id: 9, value: noIdeaRating }
 ];
 
-assertEqualLength(milkShakes, 'milkShakesMap');
+assertEqualLength(milkShakes, 'milkShakes');
 
 const fruitMilkShakes = [
   { id: 0, value: noIdeaRating },
@@ -98,7 +98,7 @@ const fruitMilkShakes = [
   { id: 8, value: noIdeaRating }
 ];
 
-assertEqualLength(fruitMilkShakes, 'fruitMilkShakesMap');
+assertEqualLength(fruitMilkShakes, 'fruitMilkShakes');
 
 const desserts = [
   { id: 0, value: noIdeaRating },
@@ -109,7 +109,7 @@ const desserts = [
   { id: 5, value: noIdeaRating }
 ];
 
-assertEqualLength(desserts, 'dessertsMap');
+assertEqualLength(desserts, 'desserts');
 
 const iceCreamFlavours = [
   { id: 0, value: noIdeaRating },
@@ -134,7 +134,7 @@ const iceCreamFlavours = [
   { id: 19, value: noIdeaRating }
 ];
 
-assertEqualLength(iceCreamFlavours, 'iceCreamFlavoursMap');
+assertEqualLength(iceCreamFlavours, 'iceCreamFlavours');
 
 const hotBeverages = [
   { id: 0, value: noIdeaRating },
@@ -145,7 +145,7 @@ const hotBeverages = [
   { id: 5, value: noIdeaRating }
 ];
 
-assertEqualLength(hotBeverages, 'hotBeveragesMap');
+assertEqualLength(hotBeverages, 'hotBeverages');
 
 const coldBeverages = [
   { id: 0, value: noIdeaRating },
@@ -157,7 +157,7 @@ const coldBeverages = [
   { id: 6, value: noIdeaRating }
 ];
 
-assertEqualLength(coldBeverages, 'coldBeveragesMap');
+assertEqualLength(coldBeverages, 'coldBeverages');
 
 const quickBites = [
   { id: 0, value: noIdeaRating },
@@ -170,7 +170,7 @@ const quickBites = [
   { id: 7, value: noIdeaRating }
 ];
 
-assertEqualLength(quickBites, 'quickBitesMap');
+assertEqualLength(quickBites, 'quickBites');
 
 const miniMeals = [
   { id: 0, value: noIdeaRating },
@@ -191,7 +191,7 @@ const miniMeals = [
   { id: 15, value: noIdeaRating }
 ];
 
-assertEqualLength(miniMeals, 'miniMealsMap');
+assertEqualLength(miniMeals, 'miniMeals');
 
 const paranthas = [
   { id: 0, value: noIdeaRating },
@@ -203,7 +203,7 @@ const paranthas = [
   { id: 6, value: noIdeaRating }
 ];
 
-assertEqualLength(paranthas, 'paranthasMap');
+assertEqualLength(paranthas, 'paranthas');
 
 const riceMeals = [
   { id: 0, value: noIdeaRating },
@@ -217,7 +217,7 @@ const riceMeals = [
   { id: 8, value: noIdeaRating }
 ];
 
-assertEqualLength(riceMeals, 'riceMealsMap');
+assertEqualLength(riceMeals, 'riceMeals');
 
 const maggi = [
   { id: 0, value: noIdeaRating },
@@ -228,7 +228,7 @@ const maggi = [
   { id: 5, value: noIdeaRating }
 ];
 
-assertEqualLength(maggi, 'maggiMap');
+assertEqualLength(maggi, 'maggi');
 
 const chaat = [
   { id: 0, value: noIdeaRating },
@@ -255,7 +255,7 @@ const chaat = [
   { id: 21, value: noIdeaRating }
 ];
 
-assertEqualLength(chaat, 'chaatMap');
+assertEqualLength(chaat, 'chaat');
 
 const chinese = [
   { id: 0, value: noIdeaRating },
@@ -270,7 +270,7 @@ const chinese = [
   { id: 9, value: noIdeaRating }
 ];
 
-assertEqualLength(chinese, 'chineseMap');
+assertEqualLength(chinese, 'chinese');
 
 const extras = [
   { id: 0, value: noIdeaRating },
@@ -278,7 +278,7 @@ const extras = [
   { id: 2, value: noIdeaRating }
 ];
 
-assertEqualLength(extras, 'extrasMap');
+assertEqualLength(extras, 'extras');
 
 const sandwich = [
   { id: 0, value: noIdeaRating },
@@ -305,7 +305,7 @@ const sandwich = [
   { id: 21, value: noIdeaRating }
 ];
 
-assertEqualLength(sandwich, 'sandwichMap');
+assertEqualLength(sandwich, 'sandwich');
 
 const frankie = [
   { id: 0, value: noIdeaRating },
@@ -321,7 +321,7 @@ const frankie = [
   { id: 10, value: noIdeaRating }
 ];
 
-assertEqualLength(frankie, 'frankieMap');
+assertEqualLength(frankie, 'frankie');
 
 const hygieneOfItems = [
   { id: 0, value: noIdeaRating },
@@ -355,7 +355,7 @@ export {
   phoneNumber,
   frequency,
   frequencyOptions,
-  regularCoffee,
+  regularFruitJuice,
   mixedFruitJuice,
   iceCreamShakes,
   milkShakes,

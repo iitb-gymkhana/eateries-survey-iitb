@@ -14,7 +14,7 @@ const frequenciesMap = {
   3: 'Less than once a week'
 };
 
-const regularCoffeeMap = {
+const regularFruitJuiceMap = {
   0: 'Lime',
   1: 'Honey Lime',
   2: 'Honey Lime Ginger',
@@ -292,7 +292,7 @@ const otherParametersMap = {
 const surveyOptionsMappings = {
   ratings: ratingsMap,
   frequencies: frequenciesMap,
-  regularCoffee: regularCoffeeMap,
+  regularFruitJuice: regularFruitJuiceMap,
   mixedFruitJuice: mixedFruitJuiceMap,
   iceCreamShakes: iceCreamShakesMap,
   milkShakes: milkShakesMap,
