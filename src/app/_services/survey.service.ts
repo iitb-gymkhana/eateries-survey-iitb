@@ -33,6 +33,12 @@ export class SurveyService {
     );
   }
 
+  getCampusHubData(): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/campushub`
+    );
+  }
+
   saveCanteensData(data): Observable<any> {
     return this.http.post(
       `${this.apiBaseUrl}/canteens`,

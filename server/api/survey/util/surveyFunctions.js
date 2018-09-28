@@ -626,7 +626,7 @@ const campushubMappingFunc = {
   },
   chaat: {
     id: (x) => {
-      return campushubSurveyMapping['regularTea'][x]
+      return campushubSurveyMapping['chaat'][x]
     },
     value: (x) => {
       return campushubSurveyMapping['ratings'][x]
