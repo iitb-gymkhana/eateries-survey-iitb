@@ -1,6 +1,7 @@
 const canteensSurveyMapping = require('./canteen-survey.mapping')
 const aromasSurveyMapping = require('./aromas-survey.mapping')
 const brewandbitesSurveyMapping = require('./brewandbites-survey.mapping')
+const campushubSurveyMapping = require('./campushub-survey.mapping')
 
 async function getSurveyDict(data, mappingFunc) {
   const keys = Object.keys(mappingFunc);
@@ -492,6 +493,209 @@ const brewandbitesMappingFunc = {
   }
 }
 
+const campushubMappingFunc = {
+  name: {
+    id: (x) => 'name',
+    value: (x) => x
+  },
+  phoneNumber: {
+    id: (x) => 'phoneNumber',
+    value: (x) => x
+  },
+  email: {
+    id: (x) => 'email',
+    value: (x) => x
+  },
+  frequency: {
+    id: (x) => 'frequency',
+    value: (x) => {
+      return campushubSurveyMapping['frequencies'][x]
+    }
+  },
+  regularFruitJuice: {
+    id: (x) => {
+      return campushubSurveyMapping['regularFruitJuice'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  mixedFruitJuice: {
+    id: (x) => {
+      return campushubSurveyMapping['mixedFruitJuice'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  iceCreamShakes: {
+    id: (x) => {
+      return campushubSurveyMapping['iceCreamShakes'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  milkShakes: {
+    id: (x) => {
+      return campushubSurveyMapping['milkShakes'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  fruitMilkShakes: {
+    id: (x) => {
+      return campushubSurveyMapping['fruitMilkShakes'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  desserts: {
+    id: (x) => {
+      return campushubSurveyMapping['desserts'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  iceCreamFlavours: {
+    id: (x) => {
+      return campushubSurveyMapping['iceCreamFlavours'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  hotBeverages: {
+    id: (x) => {
+      return campushubSurveyMapping['hotBeverages'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  coldBeverages: {
+    id: (x) => {
+      return campushubSurveyMapping['coldBeverages'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  quickBites: {
+    id: (x) => {
+      return campushubSurveyMapping['quickBites'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  miniMeals: {
+    id: (x) => {
+      return campushubSurveyMapping['miniMeals'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  paranthas: {
+    id: (x) => {
+      return campushubSurveyMapping['paranthas'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  riceMeals: {
+    id: (x) => {
+      return campushubSurveyMapping['riceMeals'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  maggi: {
+    id: (x) => {
+      return campushubSurveyMapping['maggi'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  chaat: {
+    id: (x) => {
+      return campushubSurveyMapping['regularTea'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  chinese: {
+    id: (x) => {
+      return campushubSurveyMapping['chinese'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  extras: {
+    id: (x) => {
+      return campushubSurveyMapping['extras'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  sandwich: {
+    id: (x) => {
+      return campushubSurveyMapping['sandwich'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  frankie: {
+    id: (x) => {
+      return campushubSurveyMapping['frankie'][x]
+    },
+    value: (x) => {
+      return campushubSurveyMapping['ratings'][x]
+    }
+  },
+  hygieneOfItems: {
+    id: (x) => {
+      return brewandbitesSurveyMapping['hygieneOfItems'][x]
+    },
+    value: (x) => {
+      return brewandbitesSurveyMapping['ratings'][x]
+    }
+  },
+  absenceMenuItemTimes: {
+    id: (x) => 'absenceMenuItemTimes',
+    value: (x) => {
+      return brewandbitesSurveyMapping['absenceMenuItemTimes'][x]
+    }
+  },
+  otherParameters: {
+    id: (x) => {
+      return brewandbitesSurveyMapping['otherParameters'][x]
+    },
+    value: (x) => {
+      return brewandbitesSurveyMapping['ratings'][x]
+    }
+  },
+  otherSuggestions: {
+    id: (x) => 'otherSuggestions',
+    value: (x) => x
+  },
+  submittedOn: {
+    id: (x) => 'submittedOn',
+    value: (x) => x
+  }
+}
+
 async function getCsvData(dict) {
   fields = Object.keys(dict);
   
@@ -531,5 +735,6 @@ module.exports = {
   canteensMappingFunc: canteensMappingFunc,
   aromasMappingFunc: aromasMappingFunc,
   getFreq: getFreq,
-  brewandbitesMappingFunc: brewandbitesMappingFunc
+  brewandbitesMappingFunc: brewandbitesMappingFunc,
+  campushubMappingFunc: campushubMappingFunc
 }
