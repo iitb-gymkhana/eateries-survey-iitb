@@ -119,7 +119,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'vegStarters',
-      label: 'Rate the quality Veg Starters in B&B',
+      label: 'Rate the quality of Veg Starters in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -132,7 +132,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'nonVegStarters',
-      label: 'Rate the quality Non-Veg Starters in B&B',
+      label: 'Rate the quality of Non-Veg Starters in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -145,7 +145,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'regularCoffee',
-      label: 'Rate the quality Regular Coffee in B&B',
+      label: 'Rate the quality of Regular Coffee in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -158,7 +158,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'blackCoffee',
-      label: 'Rate the quality Black Coffee in B&B',
+      label: 'Rate the quality of Black Coffee in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -171,7 +171,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'milkshakes',
-      label: 'Rate the quality Milkshakes in B&B',
+      label: 'Rate the quality of Milkshakes in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -184,7 +184,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'sundaes',
-      label: 'Rate the quality Sundaes in B&B',
+      label: 'Rate the quality of Sundaes in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -197,7 +197,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'nonVegPizzas',
-      label: 'Rate the quality Non-Veg Pizzas in B&B',
+      label: 'Rate the quality of Non-Veg Pizzas in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -210,7 +210,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'vegPizzas',
-      label: 'Rate the quality Veg Pizzas in B&B',
+      label: 'Rate the quality of Veg Pizzas in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -223,7 +223,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'sandwiches',
-      label: 'Rate the quality Sanwiches in B&B',
+      label: 'Rate the quality of Sanwiches in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -236,7 +236,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'paninis',
-      label: 'Rate the quality Paninis in B&B',
+      label: 'Rate the quality of Paninis in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -249,7 +249,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'wraps',
-      label: 'Rate the quality Wraps in B&B',
+      label: 'Rate the quality of Wraps in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -262,7 +262,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'pastas',
-      label: 'Rate the quality Pastas in B&B',
+      label: 'Rate the quality of Pastas in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -275,7 +275,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'burgers',
-      label: 'Rate the quality Burgers in B&B',
+      label: 'Rate the quality of Burgers in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -288,7 +288,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'extraToppingsOrDips',
-      label: 'Rate the quality Extra Toppings Or Dips in B&B',
+      label: 'Rate the quality of Extra Toppings Or Dips in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -301,7 +301,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'regularTea',
-      label: 'Rate the quality Regular Tea in B&B',
+      label: 'Rate the quality of Regular Tea in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -314,7 +314,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'greenTea',
-      label: 'Rate the quality Green Tea in B&B',
+      label: 'Rate the quality of Green Tea in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -327,7 +327,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'infusionTea',
-      label: 'Rate the quality Infusion Tea in B&B',
+      label: 'Rate the quality of Infusion Tea in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -340,7 +340,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'mojito',
-      label: 'Rate the quality Mojito in B&B',
+      label: 'Rate the quality of Mojito in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -353,7 +353,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'slush',
-      label: 'Rate the quality Slush in B&B',
+      label: 'Rate the quality of Slush in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -366,7 +366,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'iceTea',
-      label: 'Rate the quality Ice Tea in B&B',
+      label: 'Rate the quality of Ice Tea in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -379,7 +379,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'frappe',
-      label: 'Rate the quality Frappe in B&B',
+      label: 'Rate the quality of Frappe in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -392,7 +392,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'brewtastic',
-      label: 'Rate the quality Brewtastic in B&B',
+      label: 'Rate the quality of Brewtastic in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -405,7 +405,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'onTheRocks',
-      label: 'Rate the quality On The Rocks in B&B',
+      label: 'Rate the quality of On The Rocks in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,

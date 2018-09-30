@@ -57,7 +57,7 @@
                             <div class="control">
                               <div class="select is-focused">
                                 <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
-                                  <option value="" disabled selected>{{formControl.label}}</option>
+                                  <option required value="" disabled selected>--------</option>
                                   <option *ngFor="let option of formControl.options; let i = index" [value]="formControl.values[i]">
                                     {{ option }}
                                   </option>

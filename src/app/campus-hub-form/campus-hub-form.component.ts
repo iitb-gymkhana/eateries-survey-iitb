@@ -112,7 +112,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'regularFruitJuice',
-      label: 'Rate the quality Regular Fruite Juice in B&B',
+      label: 'Rate the quality of Regular Fruite Juice in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -125,7 +125,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'mixedFruitJuice',
-      label: 'Rate the quality Mixed Fruit Juice in B&B',
+      label: 'Rate the quality of Mixed Fruit Juice in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -138,7 +138,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'iceCreamShakes',
-      label: 'Rate the quality Ice Cream Shakes in B&B',
+      label: 'Rate the quality of Ice Cream Shakes in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -151,7 +151,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'milkShakes',
-      label: 'Rate the quality Milkshakes in B&B',
+      label: 'Rate the quality of Milkshakes in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -164,7 +164,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'fruitMilkShakes',
-      label: 'Rate the quality Fruit Milk Shakes in B&B',
+      label: 'Rate the quality of Fruit Milk Shakes in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -177,7 +177,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'desserts',
-      label: 'Rate the quality Desserts in B&B',
+      label: 'Rate the quality of Desserts in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -190,7 +190,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'iceCreamFlavours',
-      label: 'Rate the quality Ice Cream Flavours in B&B',
+      label: 'Rate the quality of Ice Cream Flavours in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -203,7 +203,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'hotBeverages',
-      label: 'Rate the quality Hot Beverages in B&B',
+      label: 'Rate the quality of Hot Beverages in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -216,7 +216,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'coldBeverages',
-      label: 'Rate the quality Cold Beverages in B&B',
+      label: 'Rate the quality of Cold Beverages in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -229,7 +229,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'quickBites',
-      label: 'Rate the quality Quick Bites in B&B',
+      label: 'Rate the quality of Quick Bites in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -242,7 +242,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'miniMeals',
-      label: 'Rate the quality Mini Meals in B&B',
+      label: 'Rate the quality of Mini Meals in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -255,7 +255,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'paranthas',
-      label: 'Rate the quality Paranthas in B&B',
+      label: 'Rate the quality of Paranthas in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -268,7 +268,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'riceMeals',
-      label: 'Rate the quality Rice Meals in B&B',
+      label: 'Rate the quality of Rice Meals in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -281,7 +281,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'maggi',
-      label: 'Rate the quality Maggi in B&B',
+      label: 'Rate the quality of Maggi in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -294,7 +294,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'chaat',
-      label: 'Rate the quality Chaat in B&B',
+      label: 'Rate the quality of Chaat in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -307,7 +307,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'chinese',
-      label: 'Rate the quality Chinese in B&B',
+      label: 'Rate the quality of Chinese in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -320,7 +320,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'extras',
-      label: 'Rate the quality Extras in B&B',
+      label: 'Rate the quality of Extras in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -333,7 +333,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'sandwich',
-      label: 'Rate the quality Sandwich in B&B',
+      label: 'Rate the quality of Sandwich in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -346,7 +346,7 @@ export class CampusHubFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'frankie',
-      label: 'Rate the quality Frankie in B&B',
+      label: 'Rate the quality of Frankie in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,

@@ -69,7 +69,7 @@ export class CanteensFormComponent implements OnInit {
     {
       type: 'select',
       model: 'hostel',
-      label: 'Hostel',
+      label: 'Which canteen would you want to provide feedback for?',
       options: hostelOptions.map(x => `Hostel ${this.surveyOptionsMapping['hostels'][x]}`),
       values: hostelOptions,
       required: true,
