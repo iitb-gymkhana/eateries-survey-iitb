@@ -36,7 +36,7 @@ export class CanteensDashboardComponent implements OnInit {
           this.fetchingData = false;
           this.gotData = true;
           if (Object.keys(this.surveyData).length === 0) {
-            this.alertService.displayErrorNotification(`No data available for Hostel ${hostel}`);
+            this.alertService.displayErrorNotification(`No data available for Hostel ${this.surveyOptionsMappings.hostels[hostel]}`);
           }
         },
         (err) => {

@@ -55,9 +55,145 @@ const canteensMappingFunc = {
       return canteensSurveyMapping['frequencies'][x]
     }
   },
-  foodItems: {
+  teaCoffee: {
     id: (x) => {
-      return canteensSurveyMapping['foodItems'][x]
+      return canteensSurveyMapping['teaCoffee'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  milkshakes: {
+    id: (x) => {
+      return canteensSurveyMapping['milkshakes'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  juice: {
+    id: (x) => {
+      return canteensSurveyMapping['juice'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  paratha: {
+    id: (x) => {
+      return canteensSurveyMapping['paratha'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  franky: {
+    id: (x) => {
+      return canteensSurveyMapping['franky'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  eggItems: {
+    id: (x) => {
+      return canteensSurveyMapping['eggItems'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  riceAndNoodles: {
+    id: (x) => {
+      return canteensSurveyMapping['riceAndNoodles'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  rice: {
+    id: (x) => {
+      return canteensSurveyMapping['rice'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  dryChickenAndPaneer: {
+    id: (x) => {
+      return canteensSurveyMapping['dryChickenAndPaneer'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  sandwich: {
+    id: (x) => {
+      return canteensSurveyMapping['sandwich'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  dryBhaji: {
+    id: (x) => {
+      return canteensSurveyMapping['dryBhaji'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  vegAndPaneerGravy: {
+    id: (x) => {
+      return canteensSurveyMapping['vegAndPaneerGravy'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  nonVeg: {
+    id: (x) => {
+      return canteensSurveyMapping['nonVeg'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  dal: {
+    id: (x) => {
+      return canteensSurveyMapping['dal'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  maggi: {
+    id: (x) => {
+      return canteensSurveyMapping['maggi'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  soups: {
+    id: (x) => {
+      return canteensSurveyMapping['soups'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  dosa: {
+    id: (x) => {
+      return canteensSurveyMapping['dosa'][x]
+    },
+    value: (x) => {
+      return canteensSurveyMapping['ratings'][x]
+    }
+  },
+  extras: {
+    id: (x) => {
+      return canteensSurveyMapping['extras'][x]
     },
     value: (x) => {
       return canteensSurveyMapping['ratings'][x]

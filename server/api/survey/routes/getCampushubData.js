@@ -9,7 +9,7 @@ module.exports = {
   options: {
     handler: async (request, h) => {
       const data = await CampusHubSurvey.find()
-      console.log(data)
+
       const dict = await getSurveyDict(data, campushubMappingFunc)
 
       const fields = Object.keys(dict)
