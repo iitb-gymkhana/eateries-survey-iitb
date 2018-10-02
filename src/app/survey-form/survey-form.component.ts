@@ -11,6 +11,7 @@ export class SurveyFormComponent implements OnInit {
   @Input() form: any;
   @Input() apiUrl: string;
   @Input() surveyModel: any;
+  @Input() eateryName: string;
   @Output() submitted = new EventEmitter<boolean>();
 
   formSubmitting = false;

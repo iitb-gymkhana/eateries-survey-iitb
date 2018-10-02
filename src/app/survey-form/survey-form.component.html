@@ -1,3 +1,5 @@
+<app-banner title="Feedback" subtitle="{{eateryName}}"></app-banner>
+
 <div class="pageloader" [ngClass]="{'is-active': formSubmitting}">
   <span class="title">Submitting...</span>
 </div>
@@ -41,7 +43,7 @@
                       <ng-container *ngIf="formControl.type === 'input'">
                         <ng-container *ngFor="let model of surveyModel[formControl.model]">
                           <div class="field">
-                            <label class="label">{{formControl.label}}</label>
+                            <label class="label">{{formControl.label}}{{(formControl.required) ? ' *' : ''}}</label>
                             <div class="control">
                               <input class="input" placeholder="{{formControl.label}}" [(ngModel)]="model.value" name="{{formControl.model}}"
                                 [required]="formControl.required" pattern="{{formControl.pattern}}">
@@ -53,7 +55,7 @@
                       <ng-container *ngIf="formControl.type === 'select'">
                         <ng-container *ngFor="let model of surveyModel[formControl.model]">
                           <div class="field">
-                            <label class="label">{{formControl.label}}</label>
+                            <label class="label">{{formControl.label}}{{(formControl.required) ? ' *' : ''}}</label>
                             <div class="control">
                               <div class="select is-focused">
                                 <select [(ngModel)]="model.value" name="{{formControl.model}}" [required]="formControl.required">
@@ -71,7 +73,7 @@
                       <ng-container *ngIf="formControl.type === 'radio-group'">
                         <ng-container *ngFor="let model of surveyModel[formControl.model]">
                           <div class="field">
-                            <label class="label">{{formControl.label}}</label>
+                            <label class="label">{{formControl.label}}{{(formControl.required) ? ' *' : ''}}</label>
                             <div class="control radio-group">
                               <ng-container *ngFor="let option of formControl.options; let i = index;">
                                 <input class="is-checkradio" id="{{formControl.model}}{{i}}" type="radio" value="{{formControl.values[i]}}"
@@ -118,7 +120,7 @@
                       <ng-container *ngIf="formControl.type === 'paragraph'">
                         <ng-container *ngFor="let model of surveyModel[formControl.model]">
                           <div class="field">
-                            <label class="label">{{formControl.label}}</label>
+                            <label class="label">{{formControl.label}}{{(formControl.required) ? ' *' : ''}}</label>
                             <textarea class="textarea" placeholder="{{formControl.placeholder}}" [(ngModel)]="model.value"
                               name="{{formControl.model}}" [required]="formControl.required"></textarea>
                           </div>
