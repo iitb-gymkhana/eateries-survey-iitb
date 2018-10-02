@@ -223,7 +223,7 @@ export class BrewAndBitesFormComponent implements OnInit {
     {
       type: 'multiple-choice-grid',
       model: 'sandwiches',
-      label: 'Rate the quality of Sanwiches in B&B',
+      label: 'Rate the quality of Sandwich in B&B',
       subLabel: '5 - Very Good, 4 - Good, 3 - Satisfactory, 2 - Poor, 1 - Unacceptable',
       columnLabels: ratingOptions.map(x => this.surveyOptionsMapping['ratings'][x]),
       columnValues: ratingOptions,
@@ -231,7 +231,7 @@ export class BrewAndBitesFormComponent implements OnInit {
       rowValues: sandwiches.map(x => x.id),
       required: true,
       formRequired: false,
-      checkboxLabel: 'Sanwiches'
+      checkboxLabel: 'Sandwich'
     },
     {
       type: 'multiple-choice-grid',
@@ -452,7 +452,8 @@ export class BrewAndBitesFormComponent implements OnInit {
       type: 'paragraph',
       model: 'otherSuggestions',
       label: 'Other Suggestions/Comments',
-      placeholder: 'Your answer'
+      placeholder: 'Your answer',
+      formRequired: true
     }
   ];
 

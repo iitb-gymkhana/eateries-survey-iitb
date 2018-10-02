@@ -318,7 +318,8 @@ export class AromasFormComponent implements OnInit {
       type: 'paragraph',
       model: 'otherSuggestions',
       label: 'Other Suggestions/Comments',
-      placeholder: 'Your answer'
+      placeholder: 'Your answer',
+      formRequired: true
     }
   ];
 
