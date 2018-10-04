@@ -14,6 +14,8 @@ export class SurveyFormComponent implements OnInit {
   @Input() eateryName: string;
   @Output() submitted = new EventEmitter<boolean>();
 
+  eateriesFeedbackUrl = 'https://gymkhana.iitb.ac.in/feedback/eateries';
+
   formSubmitting = false;
   formSubmitted = false;
 
