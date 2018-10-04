@@ -21,7 +21,7 @@ export class ChartComponent implements OnInit {
     if (fields.length !== 0) {
       const _values = Object.values(this.surveyData[fields[0]]);
       for (let i = 0; i < _values.length; i++) {
-        this.numData = +(_values[i]);
+        this.numData += +(_values[i]);
       }
 
       for (let i = 0; i < fields.length; i++) {
